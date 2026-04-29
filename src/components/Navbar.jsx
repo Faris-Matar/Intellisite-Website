@@ -51,12 +51,11 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
             aria-label="IntelliSite home"
           >
-            <span className="relative inline-flex items-center justify-center w-8 h-8 border border-gold/60 text-gold font-display italic text-lg transition-colors duration-fast ease-io-silk group-hover:bg-gold group-hover:text-navy">
-              I
-            </span>
-            <span className="font-sans text-[0.95rem] tracking-[0.18em] uppercase text-bone">
-              IntelliSite
-            </span>
+            <img
+              src="/logo-navbar.png"
+              alt="IntelliSite"
+              className="h-8 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop nav */}

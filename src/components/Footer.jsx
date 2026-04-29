@@ -11,12 +11,11 @@ export default function Footer() {
           {/* Brand column */}
           <div className="md:col-span-5">
             <Link to="/" className="flex items-center gap-3 group w-fit">
-              <span className="inline-flex items-center justify-center w-8 h-8 border border-gold/60 text-gold font-display italic text-lg">
-                I
-              </span>
-              <span className="font-sans text-[0.9rem] tracking-[0.18em] uppercase">
-                IntelliSite
-              </span>
+              <img
+                src="/logo-full.png"
+                alt="IntelliSite"
+                className="h-10 w-auto object-contain"
+              />
             </Link>
             <p className="mt-6 max-w-sm text-bone/60 leading-relaxed text-[0.95rem]">
               Cinematic, conversion-led websites for estate agents and premium
