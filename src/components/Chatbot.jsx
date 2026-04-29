@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { duration, ease } from "@/utils/motion";
 import { cn } from "@/utils/cn";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Chatbot — rule-based FAQ matcher.
@@ -55,7 +56,7 @@ const INTENTS = [
 
 const GREETING = {
   from: "bot",
-  text: "Hi — I'm the IntelliSite assistant. Ask about services, pricing, process, or timelines.",
+  text: "Hello. I am the IntelliSite assistant. How can I help you today?",
 };
 
 function matchIntent(input) {
@@ -67,8 +68,10 @@ function matchIntent(input) {
 }
 
 export default function Chatbot() {
+  const reducedMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([GREETING]);
+  const [typing, setTyping] = useState(false);
   const [draft, setDraft] = useState("");
   const scrollRef = useRef(null);
 
@@ -76,7 +79,7 @@ export default function Chatbot() {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, open]);
+  }, [messages, typing, open]);
 
   function send(text) {
     const clean = text.trim();
@@ -91,125 +94,302 @@ export default function Chatbot() {
             "Good question — that one's better answered directly. Book a 15-min call and we'll get into it.",
           cta: true,
         };
-    setMessages((m) => [...m, userMsg, reply]);
+    setMessages((m) => [...m, userMsg]);
     setDraft("");
+    // Show typing indicator, then deliver reply after short delay
+    setTyping(true);
+    setTimeout(() => {
+      setTyping(false);
+      setMessages((m) => [...m, reply]);
+    }, reducedMotion ? 0 : 900);
   }
 
   const quickPrompts = ["Services", "Pricing", "Process", "Timeline"];
 
   return (
     <>
-      {/* Toggle button */}
+      {/* ── Toggle button ── */}
       <motion.button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close assistant" : "Open assistant"}
         aria-expanded={open}
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: reducedMotion ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: duration.slow, ease: ease.silk, delay: 2.4 }}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.96 }}
-        className={cn(
-          "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center",
-          "border border-gold/50 bg-navy-900/90 backdrop-blur-md text-gold",
-          "shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6)] transition-colors",
-          "hover:bg-gold hover:text-navy"
-        )}
+        whileHover={{
+          boxShadow: "0 0 20px rgba(201,168,76,0.25)",
+          borderColor: "rgba(201,168,76,1)",
+        }}
+        whileTap={{ scale: reducedMotion ? 1 : 0.96 }}
+        className="fixed bottom-6 right-6 z-50 w-[60px] h-[60px] rounded-full flex items-center justify-center transition-colors"
+        style={{
+          background: "rgba(13,27,42,0.92)",
+          border: "1px solid rgba(201,168,76,0.5)",
+          backdropFilter: "blur(12px)",
+        }}
       >
-        <motion.span
-          animate={{ rotate: open ? 45 : 0 }}
-          transition={{ duration: duration.quick, ease: ease.silk }}
-          className="font-display italic text-xl leading-none"
-        >
-          {open ? "×" : "I"}
-        </motion.span>
+        <AnimatePresence mode="wait" initial={false}>
+          {open ? (
+            <motion.span
+              key="close"
+              initial={{ opacity: 0, rotate: reducedMotion ? 0 : -45 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: reducedMotion ? 0 : 45 }}
+              transition={{ duration: duration.quick, ease: ease.silk }}
+              className="font-sans text-xl leading-none"
+              style={{ color: "rgba(201,168,76,0.9)" }}
+            >
+              ×
+            </motion.span>
+          ) : (
+            <motion.span
+              key="open"
+              initial={{ opacity: 0, rotate: reducedMotion ? 0 : 45 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: reducedMotion ? 0 : -45 }}
+              transition={{ duration: duration.quick, ease: ease.silk }}
+              className="font-display italic leading-none"
+              style={{ color: "rgba(201,168,76,0.9)", fontSize: "1.5rem" }}
+            >
+              I
+            </motion.span>
+          )}
+        </AnimatePresence>
       </motion.button>
 
-      {/* Panel */}
+      {/* ── Panel ── */}
       <AnimatePresence>
         {open && (
           <motion.div
             key="chat-panel"
-            initial={{ opacity: 0, y: 16, scale: 0.98 }}
+            initial={{ opacity: 0, y: reducedMotion ? 0 : 16, scale: reducedMotion ? 1 : 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 12, scale: 0.98 }}
+            exit={{ opacity: 0, y: reducedMotion ? 0 : 12, scale: reducedMotion ? 1 : 0.98 }}
             transition={{ duration: duration.base, ease: ease.silk }}
             role="dialog"
             aria-label="IntelliSite assistant"
-            className={cn(
-              "fixed bottom-24 right-6 z-50 w-[min(92vw,380px)]",
-              "flex flex-col max-h-[70vh] overflow-hidden",
-              "bg-navy-900/95 backdrop-blur-lg border border-bone/10"
-            )}
+            className="fixed bottom-24 right-6 z-50 w-[min(92vw,360px)] flex flex-col"
+            style={{
+              maxHeight: "70vh",
+              background: "#060d17",
+              border: "1px solid rgba(201,168,76,0.15)",
+              borderRadius: "0 0 2px 2px",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.6)",
+              backdropFilter: "blur(24px)",
+              overflow: "hidden",
+            }}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-bone/10">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center w-7 h-7 border border-gold/60 text-gold font-display italic text-sm">
-                  I
-                </span>
-                <div>
-                  <p className="text-[0.78rem] tracking-[0.18em] uppercase text-bone">
-                    IntelliSite
-                  </p>
-                  <p className="text-[0.65rem] tracking-[0.2em] uppercase text-bone/45">
-                    Assistant
-                  </p>
+            {/* ── Header ── */}
+            <div
+              className="flex items-center justify-between shrink-0"
+              style={{
+                padding: "1rem 1.25rem",
+                borderBottom: "1px solid rgba(201,168,76,0.12)",
+              }}
+            >
+              <div>
+                <p
+                  className="font-display italic leading-none mb-1"
+                  style={{ color: "rgba(232,228,218,0.9)", fontSize: "1rem" }}
+                >
+                  IntelliSite
+                </p>
+                <div className="flex items-center gap-2">
+                  {/* Pulsing gold dot */}
+                  <motion.span
+                    animate={reducedMotion ? {} : { opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    style={{
+                      display: "block",
+                      width: "6px",
+                      height: "6px",
+                      borderRadius: "50%",
+                      background: "rgba(201,168,76,0.9)",
+                      flexShrink: 0,
+                    }}
+                  />
+                  <span
+                    className="font-sans"
+                    style={{
+                      color: "rgba(232,228,218,0.4)",
+                      fontSize: "0.65rem",
+                      letterSpacing: "0.12em",
+                    }}
+                  >
+                    Online
+                  </span>
                 </div>
               </div>
-              <span className="block w-2 h-2 rounded-full bg-gold/80" aria-hidden="true" />
             </div>
 
-            {/* Messages */}
+            {/* ── Messages ── */}
             <div
               ref={scrollRef}
-              className="flex-1 overflow-y-auto px-5 py-5 space-y-4 text-[0.92rem] leading-relaxed"
+              className="flex-1 overflow-y-auto"
+              style={{ padding: "1.25rem", display: "flex", flexDirection: "column", gap: "1rem" }}
             >
               {messages.map((m, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: reducedMotion ? 0 : 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: duration.base, ease: ease.silk }}
-                  className={cn(
-                    "max-w-[85%]",
-                    m.from === "user" ? "ml-auto text-right" : ""
-                  )}
+                  style={{
+                    maxWidth: "85%",
+                    alignSelf: m.from === "user" ? "flex-end" : "flex-start",
+                  }}
                 >
-                  <div
-                    className={cn(
-                      "inline-block px-4 py-3 border",
-                      m.from === "user"
-                        ? "bg-gold/10 border-gold/30 text-bone"
-                        : "bg-navy/60 border-bone/10 text-bone/85"
-                    )}
-                  >
-                    {m.text}
-                  </div>
+                  {m.from === "bot" ? (
+                    /* Bot bubble */
+                    <div
+                      style={{
+                        background: "rgba(13,27,42,0.6)",
+                        border: "1px solid rgba(201,168,76,0.08)",
+                        borderLeft: "2px solid rgba(201,168,76,0.3)",
+                        padding: "0.65rem 0.85rem",
+                        borderRadius: "0 2px 2px 0",
+                      }}
+                    >
+                      <p
+                        className="font-sans"
+                        style={{
+                          color: "rgba(232,228,218,0.8)",
+                          fontSize: "0.8rem",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {m.text}
+                      </p>
+                    </div>
+                  ) : (
+                    /* User bubble */
+                    <div
+                      style={{
+                        background: "rgba(201,168,76,0.08)",
+                        border: "1px solid rgba(201,168,76,0.15)",
+                        padding: "0.65rem 0.85rem",
+                        borderRadius: "2px 0 2px 2px",
+                        textAlign: "right",
+                      }}
+                    >
+                      <p
+                        className="font-sans"
+                        style={{
+                          color: "rgba(232,228,218,0.9)",
+                          fontSize: "0.8rem",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {m.text}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Calendly CTA under bot messages */}
                   {m.cta && (
                     <a
                       href={CALENDLY}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-2 inline-flex items-center gap-2 text-[0.72rem] tracking-[0.2em] uppercase text-gold hover:text-bone transition-colors"
+                      className="mt-2 inline-flex items-center gap-1 font-sans"
+                      style={{
+                        color: "rgba(201,168,76,0.7)",
+                        fontSize: "0.72rem",
+                        letterSpacing: "0.08em",
+                        textDecoration: "none",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
+                      onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
                     >
-                      Book the call <span aria-hidden="true">→</span>
+                      Book a call <span aria-hidden="true">→</span>
                     </a>
                   )}
                 </motion.div>
               ))}
+
+              {/* ── Typing indicator ── */}
+              <AnimatePresence>
+                {typing && (
+                  <motion.div
+                    key="typing"
+                    initial={{ opacity: 0, y: reducedMotion ? 0 : 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: reducedMotion ? 0 : 4 }}
+                    transition={{ duration: duration.quick, ease: ease.silk }}
+                    style={{ alignSelf: "flex-start", maxWidth: "85%" }}
+                  >
+                    <div
+                      style={{
+                        background: "rgba(13,27,42,0.6)",
+                        border: "1px solid rgba(201,168,76,0.08)",
+                        borderLeft: "2px solid rgba(201,168,76,0.3)",
+                        padding: "0.65rem 0.85rem",
+                        borderRadius: "0 2px 2px 0",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "5px",
+                      }}
+                    >
+                      {[0, 1, 2].map((i) => (
+                        <motion.span
+                          key={i}
+                          animate={reducedMotion ? { opacity: 0.4 } : { opacity: [0.2, 1, 0.2], y: [0, -3, 0] }}
+                          transition={{
+                            duration: 0.8,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: i * 0.15,
+                          }}
+                          style={{
+                            display: "block",
+                            width: "4px",
+                            height: "4px",
+                            borderRadius: "50%",
+                            background: "rgba(201,168,76,0.4)",
+                            flexShrink: 0,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* Quick prompts */}
-            {messages.length <= 1 && (
-              <div className="px-5 pb-3 flex flex-wrap gap-2">
+            {/* ── Quick prompts ── */}
+            {messages.length <= 1 && !typing && (
+              <div
+                className="shrink-0 flex flex-wrap gap-2"
+                style={{ padding: "0 1.25rem 1rem" }}
+              >
                 {quickPrompts.map((q) => (
                   <button
                     key={q}
                     type="button"
                     onClick={() => send(q)}
-                    className="text-[0.7rem] tracking-[0.2em] uppercase text-bone/60 hover:text-gold border border-bone/15 hover:border-gold/40 px-3 py-1.5 transition-colors"
+                    className="font-sans transition-all"
+                    style={{
+                      background: "transparent",
+                      border: "1px solid rgba(201,168,76,0.2)",
+                      color: "rgba(232,228,218,0.6)",
+                      fontSize: "0.7rem",
+                      letterSpacing: "0.12em",
+                      textTransform: "uppercase",
+                      padding: "5px 10px",
+                      cursor: "pointer",
+                      transitionDuration: "200ms",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(201,168,76,0.6)";
+                      e.currentTarget.style.color = "rgba(232,228,218,0.9)";
+                      e.currentTarget.style.background = "rgba(201,168,76,0.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(201,168,76,0.2)";
+                      e.currentTarget.style.color = "rgba(232,228,218,0.6)";
+                      e.currentTarget.style.background = "transparent";
+                    }}
                   >
                     {q}
                   </button>
@@ -217,27 +397,45 @@ export default function Chatbot() {
               </div>
             )}
 
-            {/* Input */}
+            {/* ── Input ── */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 send(draft);
               }}
-              className="border-t border-bone/10 flex items-center"
+              className="shrink-0 flex items-center"
+              style={{ borderTop: "1px solid rgba(201,168,76,0.12)" }}
             >
               <input
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
-                placeholder="Ask a question…"
+                placeholder="Ask anything..."
                 aria-label="Your message"
-                className="flex-1 bg-transparent px-5 py-4 text-bone placeholder:text-bone/35 text-sm outline-none"
+                className="flex-1 font-sans bg-transparent outline-none border-none"
+                style={{
+                  padding: "1rem 1.25rem",
+                  color: "rgba(232,228,218,0.8)",
+                  fontSize: "0.82rem",
+                  caretColor: "rgba(201,168,76,0.8)",
+                }}
               />
               <button
                 type="submit"
-                aria-label="Send"
-                className="px-5 py-4 text-gold hover:text-bone transition-colors text-sm tracking-[0.2em] uppercase"
+                aria-label="Send message"
+                className="shrink-0 transition-colors"
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: "1rem 1.25rem",
+                  color: "rgba(201,168,76,0.6)",
+                  fontSize: "1.1rem",
+                  cursor: "pointer",
+                  lineHeight: 1,
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(201,168,76,1)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(201,168,76,0.6)")}
               >
-                Send
+                →
               </button>
             </form>
           </motion.div>

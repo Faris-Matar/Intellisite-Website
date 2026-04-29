@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { duration, ease } from "@/utils/motion";
 import RevealText from "@/components/motion/RevealText";
 import Button from "@/components/Button";
-import heroVideo from "@/assets/video/hero-intro.mp4";
+
 
 /**
  * HERO — Scene 1
@@ -37,7 +37,7 @@ export default function Hero() {
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    v.playbackRate = 0.9; // very slight slowdown reads as more cinematic
+    v.playbackRate = 0.85; // very slight slowdown reads as more cinematic
     const play = () => v.play().catch(() => {});
     if (v.readyState >= 2) play();
     else v.addEventListener("canplay", play, { once: true });
@@ -59,7 +59,8 @@ export default function Hero() {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          src={heroVideo}
+          src="/video/hero-bg.mp4"
+          poster="/video/hero-poster.jpg"
           autoPlay
           loop
           muted
