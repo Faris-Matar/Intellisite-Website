@@ -8,6 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 /**
  * Smooth-scroll setup, wired into GSAP ScrollTrigger so all scroll-linked
  * motion stays in perfect sync with Lenis. One instance per app.
+ *
+ * The Lenis instance is exposed on `window.__lenis` so that route-change
+ * scroll resets (see ScrollToTop) can drive it directly. Without this,
+ * window.scrollTo() is a no-op while Lenis owns the scroll position.
  */
 export function useLenis() {
   useEffect(() => {
@@ -25,6 +29,9 @@ export function useLenis() {
       touchMultiplier: 1.4,
     });
 
+    // Expose for ScrollToTop and any future route-aware scroll consumers
+    window.__lenis = lenis;
+
     // Drive Lenis from GSAP's ticker so ScrollTrigger stays in lockstep
     const tick = (time) => lenis.raf(time * 1000);
     gsap.ticker.add(tick);
@@ -36,6 +43,9 @@ export function useLenis() {
     return () => {
       gsap.ticker.remove(tick);
       lenis.destroy();
+      if (window.__lenis === lenis) {
+        delete window.__lenis;
+      }
     };
   }, []);
 }
