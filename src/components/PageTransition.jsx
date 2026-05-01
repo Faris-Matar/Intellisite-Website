@@ -1,34 +1,47 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { duration, ease, pageTransition } from "@/utils/motion";
+import { duration, ease } from "@/utils/motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Page transition wrapper.
- * Two layers:
- *   1. A dark navy curtain that sweeps over the screen between routes.
- *   2. A content-level fade + slight rise.
  *
- * Respects prefers-reduced-motion: curtain is suppressed and y offsets
- * are removed when the OS accessibility preference is set.
+ * Clean opacity + slight rise on every route change.
+ * `initial={false}` on AnimatePresence guarantees the destination route
+ * appears at its `animate` state on first paint, with no overlay or
+ * gating layer that could mask the page.
  *
- * Usage (in App.jsx):
- *   <PageTransition>
- *     <Routes>...</Routes>
- *   </PageTransition>
+ * Respects prefers-reduced-motion.
  */
 export default function PageTransition({ children }) {
   const location = useLocation();
   const reducedMotion = useReducedMotion();
 
-  /* Content variant — strip y offset when reduced motion is on */
-  const contentVariants = reducedMotion
+  const variants = reducedMotion
     ? {
         initial: { opacity: 0 },
-        animate: { opacity: 1, transition: { duration: duration.base, ease: ease.silk } },
-        exit:    { opacity: 0, transition: { duration: duration.quick, ease: ease.silk } },
+        animate: {
+          opacity: 1,
+          transition: { duration: duration.fast, ease: ease.silk },
+        },
+        exit: {
+          opacity: 0,
+          transition: { duration: duration.fast, ease: ease.silk },
+        },
       }
-    : pageTransition;
+    : {
+        initial: { opacity: 0, y: 12 },
+        animate: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: duration.base, ease: ease.silk },
+        },
+        exit: {
+          opacity: 0,
+          y: -6,
+          transition: { duration: duration.quick, ease: ease.silk },
+        },
+      };
 
   return (
     <AnimatePresence mode="wait" initial={false}>
@@ -37,26 +50,9 @@ export default function PageTransition({ children }) {
         initial="initial"
         animate="animate"
         exit="exit"
-        variants={contentVariants}
+        variants={variants}
         className="relative"
       >
-        {/* Dark curtain — suppressed entirely when reducedMotion is true */}
-        {!reducedMotion && (
-          <motion.div
-            key={`curtain-${location.pathname}`}
-            aria-hidden="true"
-            className="fixed inset-0 z-50 pointer-events-none bg-navy-900 origin-bottom"
-            initial={{ scaleY: 1 }}
-            animate={{ scaleY: 0 }}
-            exit={{ scaleY: 1, transition: { duration: 0 } }}
-            transition={{
-              duration: duration.slow,
-              ease: ease.authority,
-              delay: 0.05,
-            }}
-            style={{ transformOrigin: "bottom" }}
-          />
-        )}
         {children}
       </motion.div>
     </AnimatePresence>
