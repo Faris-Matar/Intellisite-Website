@@ -31,7 +31,7 @@ const INCLUSIONS = [
 /* ── Client type cards ── */
 const CLIENT_TYPES = [
   {
-    title: "Estate Agents",
+    title: "Luxury Home Improvement Businesses",
     desc:  "Independent and boutique agents who need to stand apart from Rightmove and the high street chains.",
   },
   {
@@ -84,11 +84,11 @@ export default function Services() {
     <>
       <Helmet>
         <title>Web Design Services — IntelliSite</title>
-        <meta name="description" content="Premium web design services for UK estate agents and luxury service businesses. Cinematic, conversion-led websites built to win instructions and generate enquiries." />
-        <meta name="keywords" content="web design services UK, estate agent website design, premium web design agency UK, luxury website design" />
+        <meta name="description" content="Premium web design services for UK luxury home improvement businesses. Cinematic, conversion-led websites for bespoke kitchens, luxury bathrooms, loft conversions, and premium home services built to generate enquiries." />
+        <meta name="keywords" content="web design services UK, luxury home improvement business website design, bespoke kitchen website design, luxury bathroom website design, loft conversion website, premium home services web design" />
         <link rel="canonical" href="https://www.intellisite.co.uk/services" />
         <meta property="og:title" content="Web Design Services — IntelliSite" />
-        <meta property="og:description" content="Premium web design services for UK estate agents. Cinematic, conversion-led websites built to win instructions." />
+        <meta property="og:description" content="Premium web design services for UK luxury home improvement businesses. Cinematic, conversion-led websites built to win clients." />
         <meta property="og:url" content="https://www.intellisite.co.uk/services" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.intellisite.co.uk/og-image.jpg" />

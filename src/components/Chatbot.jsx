@@ -18,45 +18,45 @@ const CALENDLY = "https://calendly.com/kiran-intelisite/15-min-discovery-call";
 const INTENTS = [
   {
     id: "services",
-    keywords: ["service", "offer", "what do you do", "build", "design", "website"],
+    keywords: ["services", "offer", "build", "create", "what do you do", "what you do", "help", "provide"],
     reply:
-      "We build three tiers: a bespoke Signature Site, a Conversion Rework of an existing site, and an Ongoing Partnership for retainer work. Want me to walk you through which fits you best on a 15-min call?",
+      "We build premium custom websites for luxury home improvement businesses across the UK — bespoke kitchen companies, luxury bathroom specialists, loft conversion firms, and other premium home service providers. Every site is built around your specific work, your clients, and your brand. No templates, no shortcuts.",
   },
   {
     id: "pricing",
-    keywords: ["price", "cost", "pricing", "how much", "budget", "quote", "rate"],
+    keywords: ["price", "cost", "pricing", "how much", "budget", "investment", "fees", "charge", "expensive"],
     reply:
-      "Projects are scoped individually — a Signature Site typically starts in the low five figures. We'll share a precise number once we understand your market. The quickest way is a short call.",
+      "Our projects start from £1,999 for a Starter site and go up to £4,999 for our Premium package. Every project is scoped to your specific needs — you only pay for what your business actually requires. We discuss this openly on the discovery call with no pressure and no surprises.",
   },
   {
     id: "process",
-    keywords: ["process", "how do you work", "workflow", "steps", "stages"],
+    keywords: ["process", "how does it work", "steps", "timeline", "how long", "long does it take", "how do you work", "workflow"],
     reply:
-      "Four stages: discovery, design direction, build, and launch. Most engagements run 4–8 weeks depending on scope. Each stage is sign-off gated — no surprises.",
+      "Most projects are completed in 3 to 4 weeks. We start with a discovery call where we review your current site and discuss your goals. You then complete a short brief, we agree the design direction, build section by section, and launch. You approve every stage before we move forward.",
   },
   {
-    id: "timeline",
-    keywords: ["timeline", "how long", "when", "deadline", "turnaround", "fast"],
+    id: "niche",
+    keywords: ["kitchen", "bathroom", "loft", "home improvement", "extension", "renovation", "refurbishment", "conversion", "trade", "builder", "contractor", "do you work with"],
     reply:
-      "Typical delivery is 4–8 weeks from kickoff. Conversion Reworks can land sooner. If you have a hard date, mention it on the call.",
+      "Absolutely. We work specifically with luxury home improvement businesses — bespoke kitchen companies, high-end bathroom specialists, loft conversion firms, premium extensions, and renovation businesses. If your work commands premium prices, your website should reflect that standard.",
   },
   {
     id: "portfolio",
-    keywords: ["portfolio", "examples", "work", "case", "demo", "clients"],
+    keywords: ["portfolio", "examples", "work", "see", "previous", "clients", "demos", "showcase", "results"],
     reply:
-      "Three live builds on the homepage — Hartley & Co Kitchens, Verde Garden Design, Aura Bathrooms. Each links through to the full live site.",
+      "You can see examples of our work on the Portfolio page. We have a real before and after transformation showing what a premium rebuild actually looks like — the difference is stark. Head to the Portfolio tab in the navigation to see it.",
   },
   {
     id: "contact",
-    keywords: ["contact", "email", "call", "talk", "book", "meeting", "speak"],
+    keywords: ["book", "call", "contact", "speak", "talk", "get in touch", "discovery", "appointment", "meet", "how do i book", "booking"],
     reply:
-      "Easiest route is the 15-minute discovery call — no pitch, just a conversation. Or send a brief through the contact page.",
+      "The easiest way is to book a free 15 minute discovery call using the button below. We will review your current website before we speak and come prepared with specific recommendations. No obligation, no pressure — just a straight conversation about what your business actually needs.",
   },
 ];
 
 const GREETING = {
   from: "bot",
-  text: "Hello. I am the IntelliSite assistant. How can I help you today?",
+  text: "Hello. I am the IntelliSite assistant. I am here to help — ask me anything about our websites, process, or pricing.",
 };
 
 function matchIntent(input) {
@@ -91,7 +91,7 @@ export default function Chatbot() {
       : {
           from: "bot",
           text:
-            "Good question — that one's better answered directly. Book a 15-min call and we'll get into it.",
+            "I am not sure I have the answer to that one. The best way to get a proper answer is to book a free discovery call — we can cover anything and everything on there.",
           cta: true,
         };
     setMessages((m) => [...m, userMsg]);
@@ -104,7 +104,12 @@ export default function Chatbot() {
     }, reducedMotion ? 0 : 900);
   }
 
-  const quickPrompts = ["Services", "Pricing", "Process", "Timeline"];
+  const quickPrompts = [
+    { label: "What do you build?", trigger: "what do you do" },
+    { label: "Pricing",            trigger: "pricing" },
+    { label: "How long does it take?", trigger: "how long does it take" },
+    { label: "See examples",       trigger: "portfolio" },
+  ];
 
   return (
     <>
@@ -365,9 +370,9 @@ export default function Chatbot() {
               >
                 {quickPrompts.map((q) => (
                   <button
-                    key={q}
+                    key={q.label}
                     type="button"
-                    onClick={() => send(q)}
+                    onClick={() => send(q.trigger)}
                     className="font-sans transition-all"
                     style={{
                       background: "transparent",
@@ -391,7 +396,7 @@ export default function Chatbot() {
                       e.currentTarget.style.background = "transparent";
                     }}
                   >
-                    {q}
+                    {q.label}
                   </button>
                 ))}
               </div>

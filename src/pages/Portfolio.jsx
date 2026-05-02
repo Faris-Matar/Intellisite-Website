@@ -70,11 +70,11 @@ export default function Portfolio() {
     <>
       <Helmet>
         <title>Our Work — IntelliSite Web Design Portfolio</title>
-        <meta name="description" content="See IntelliSite's web design portfolio. Real transformations for UK estate agents and luxury service businesses. Before and after website redesigns that convert." />
-        <meta name="keywords" content="web design portfolio UK, estate agent website redesign, premium website examples, before after website design" />
+        <meta name="description" content="See IntelliSite's web design portfolio. Real transformations for UK luxury home improvement businesses including bespoke kitchens, luxury bathrooms, and loft conversions. Before and after website redesigns that convert." />
+        <meta name="keywords" content="web design portfolio UK, luxury home improvement business website redesign, bespoke kitchen website design, luxury bathroom website, loft conversion website, before after website design" />
         <link rel="canonical" href="https://www.intellisite.co.uk/portfolio" />
         <meta property="og:title" content="Our Work — IntelliSite Web Design Portfolio" />
-        <meta property="og:description" content="Real website transformations for UK estate agents. See the before and after results." />
+        <meta property="og:description" content="Real website transformations for UK luxury home improvement businesses. See the before and after results." />
         <meta property="og:url" content="https://www.intellisite.co.uk/portfolio" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.intellisite.co.uk/og-image.jpg" />

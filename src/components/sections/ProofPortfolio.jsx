@@ -14,22 +14,22 @@ import FadeIn from "@/components/motion/FadeIn";
 
 /* ─── Data ─── */
 const METRICS = [
-  { value: "100%", label: "Conversion-focused builds" },
-  { value: "3s",   label: "Average first impression window" },
-  { value: "UK",   label: "Estate agents and premium services" },
+  { value: "100%", label: "Of our builds are conversion focused" },
+  { value: "3s",   label: "To make or break a first impression" },
+  { value: "UK",   label: "Luxury home improvement businesses served across the UK" },
 ];
 
 const DEMOS = [
   {
     name: "Hartley Property Group",
     type: "Estate Agent · London",
-    desc: "A boutique London property group repositioned as a premium brand.",
+    desc: "Hartley were invisible online despite doing exceptional work. Now their website does the selling before they even pick up the phone.",
     href: "/demos/hartley/index.html",
   },
   {
     name: "Aura Estates",
     type: "Luxury Lettings · Manchester",
-    desc: "A luxury lettings agency built for high-net-worth clients.",
+    desc: "Aura's clients expect luxury at every touchpoint. Their old website was letting them down at the first one. Not anymore.",
     href: "/demos/aura/index.html",
   },
 ];
@@ -96,6 +96,12 @@ export default function ProofPortfolio() {
 function PartA({ reduced }) {
   return (
     <div className="container-edge py-16 md:py-20">
+      <FadeIn>
+        <div className="flex items-center mb-10">
+          <span className="hairline" />
+          <span className="eyebrow">Proof</span>
+        </div>
+      </FadeIn>
       <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-bone/10">
         {METRICS.map((m, i) => (
           <motion.div
@@ -145,8 +151,8 @@ function PartB({ view, setView, reduced }) {
             transition={{ duration: duration.slow, ease: ease.silk }}
             className="font-display text-display-md text-bone leading-[1.05]"
           >
-            From invisible
-            <span className="block italic text-gold">to unforgettable.</span>
+            What your competitors see when they
+            <span className="block italic text-gold/90">look at your website.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -155,7 +161,7 @@ function PartB({ view, setView, reduced }) {
             transition={{ duration: duration.slow, ease: ease.silk, delay: 0.15 }}
             className="mt-6 text-bone/60 text-lg leading-relaxed"
           >
-            A real Birmingham estate agency. A real result.
+            Innovate Estate Agents came to us with a website that was costing them clients every single day. This is what we did about it.
           </motion.p>
         </div>
 
@@ -240,6 +246,27 @@ function PartB({ view, setView, reduced }) {
         <span className={view === "after" ? "text-gold/60" : "text-bone/35"}>
           {view === "after" ? "IntelliSite rebuild" : "Current live site"}
         </span>
+      </div>
+
+      {/* Results strip */}
+      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-bone/10 mt-10 border border-bone/10">
+        {[
+          { label: "First Impression",  value: "Transformed in under 3 seconds" },
+          { label: "Clarity",           value: "One clear action instead of nine confusing nav items" },
+          { label: "Perception",        value: "Premium brand positioning versus generic high street template" },
+        ].map((r) => (
+          <div key={r.label} className="flex flex-col items-center text-center px-8 py-8 md:py-6">
+            <p
+              className="font-display text-bone leading-tight mb-3"
+              style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)", lineHeight: 1.35 }}
+            >
+              {r.value}
+            </p>
+            <p className="text-[0.7rem] tracking-[0.2em] uppercase text-bone/40">
+              {r.label}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

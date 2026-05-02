@@ -121,14 +121,14 @@ export default function Hero() {
           >
             <span className="hairline" />
             <span className="eyebrow">
-              Premium Web Design · Estate Agents UK
+              Premium Web Design · Luxury Home Improvement Businesses UK
             </span>
           </motion.div>
 
           {/* Headline — word-by-word */}
           <RevealText
             as="h1"
-            text="Design that wins instructions."
+            text="Your craftsmanship is world class. Your website should be too."
             delay={0.5}
             gap={0.07}
             className="font-display text-display-xl text-bone max-w-5xl"
@@ -159,8 +159,8 @@ export default function Hero() {
             }}
             className="mt-10 max-w-xl text-bone/70 text-lg leading-relaxed"
           >
-            Cinematic, conversion-led websites for estate agents and premium
-            service businesses across the UK.
+            Cinematic, conversion-led websites for bespoke kitchens, luxury
+            bathrooms, loft conversions, and premium home services across the UK.
           </motion.p>
 
           {/* CTAs */}
