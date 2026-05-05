@@ -104,7 +104,7 @@ export default function Process() {
             transition={{ duration: duration.slow, ease: ease.silk, delay: 0.15 }}
             className="mt-6 text-bone/60 text-lg leading-relaxed max-w-xl"
           >
-            Every IntelliSite project follows the same proven path — from first
+            Every InteliSite project follows the same proven path — from first
             conversation to final launch.
           </motion.p>
         </div>

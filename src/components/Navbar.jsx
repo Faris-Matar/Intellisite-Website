@@ -50,11 +50,11 @@ export default function Navbar() {
           <Link
             to="/"
             className="flex items-center gap-3 group"
-            aria-label="IntelliSite home"
+            aria-label="InteliSite home"
           >
             <img
               src="/logo-navbar.png"
-              alt="IntelliSite"
+              alt="InteliSite"
               className="h-8 w-auto object-contain"
             />
           </Link>

@@ -1,6 +1,6 @@
-/* =====================================================
+﻿/* =====================================================
    HARTLEY & CO KITCHENS — Site Script
-   A showcase build by IntelliSite
+   A showcase build by InteliSite
    ===================================================== */
 
 document.documentElement.classList.add("js-ready");

@@ -6,7 +6,7 @@ import FadeIn from "@/components/motion/FadeIn";
 /**
  * WHY CHOOSE US
  *
- * Five feature cards explaining why premium businesses choose IntelliSite.
+ * Five feature cards explaining why premium businesses choose InteliSite.
  * The one section that talks about us — everything else on the site is
  * about them.
  *
@@ -21,19 +21,19 @@ const CARDS = [
   },
   {
     title: "Conversion Optimisation",
-    desc:  "Every element carefully designed to turn casual browsers into future clients ready to invade your schedule.",
+    desc:  "Every element designed to turn browsers into consultation bookings.",
   },
   {
     title: "SEO Foundation",
-    desc:  "Quickly boost yourself up the ranks within your city from day one.",
+    desc:  "Rank for bespoke kitchens your city from day one.",
   },
   {
     title: "Mobile First",
-    desc:  "70% of high-end clients always browse on phones. Your site will bridge every gap.",
+    desc:  "70% of high-end clients browse on phones. Your site will be flawless.",
   },
   {
     title: "No Templates",
-    desc:  "Your work, your clients, your brand, your say-so. Custom built websites around your every whim.",
+    desc:  "Every website custom-built for your brand, your work, your clients.",
   },
 ];
 
@@ -150,7 +150,7 @@ export default function WhyChooseUs() {
             className="font-display text-display-md text-bone leading-[1.05]"
           >
             Why premium businesses
-            <span className="block italic text-bone/50">choose IntelliSite.</span>
+            <span className="block italic text-bone/50">choose InteliSite.</span>
           </motion.h2>
         </div>
 

@@ -8,7 +8,7 @@ import FadeIn from "@/components/motion/FadeIn";
  *
  * The gap between average and premium — made visible.
  * Two-column contrast: left shows what most agency sites are,
- * right shows what IntelliSite builds. The "I need this" moment.
+ * right shows what InteliSite builds. The "I need this" moment.
  * No sales pitch. Just a quiet, confident comparison.
  */
 
@@ -161,7 +161,7 @@ export default function Realisation() {
             </p>
           </motion.div>
 
-          {/* Right — The IntelliSite standard */}
+          {/* Right — The InteliSite standard */}
           <motion.div
             variants={slideRight}
             initial="hidden"
@@ -195,7 +195,7 @@ export default function Realisation() {
                 I
               </span>
               <p className="text-[0.72rem] tracking-[0.22em] uppercase text-gold/80">
-                The IntelliSite standard
+                The InteliSite standard
               </p>
             </div>
 

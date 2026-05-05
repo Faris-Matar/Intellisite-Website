@@ -1,6 +1,6 @@
-/* =====================================================
+﻿/* =====================================================
    HARTLEY & CO KITCHENS — Brand CSS
-   A showcase build by IntelliSite
+   A showcase build by InteliSite
    Dark luxury editorial design system
    ===================================================== */
 
@@ -1478,17 +1478,17 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--muted);
 }
 
-.intellisite-credit {
+.InteliSite-credit {
   font-size: 0.82rem;
   color: var(--muted);
 }
 
-.intellisite-credit a {
+.InteliSite-credit a {
   color: var(--accent);
   transition: color var(--t-fast);
 }
 
-.intellisite-credit a:hover { color: var(--accent-light); }
+.InteliSite-credit a:hover { color: var(--accent-light); }
 
 /* ─── RESPONSIVE ────────────────────────────────────── */
 @media (max-width: 1080px) {

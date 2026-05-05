@@ -72,7 +72,7 @@ export default function Problem() {
             className="mt-8 text-bone/60 text-lg leading-relaxed max-w-md"
           >
             Slow pages. Cramped mobile. A template everyone else also uses.
-            The competition doesn't even see it — they just feel the gap.
+            High-end clients judge you in 3 seconds. Your website just lost the pitch.
           </motion.p>
 
           {/* Animated stat chips */}

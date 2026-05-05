@@ -84,8 +84,8 @@ export default function Transformation() {
             transition={{ duration: duration.slow, ease: ease.silk, delay: 0.15 }}
             className="mt-8 text-bone/60 text-lg leading-relaxed max-w-md"
           >
-            A structure built for how sellers actually decide. Clean hierarchy.
-            Mobile-first performance. A first impression that earns the call.
+            A structure built for how high-end clients actually decide. Clean hierarchy.
+            Mobile-first performance. A first impression that earns the consultation.
           </motion.p>
 
           {/* Stat row */}
@@ -263,7 +263,7 @@ function VisualStack({ photoY }) {
         transition={{ duration: duration.base, ease: ease.silk, delay: 0.6 }}
         className="absolute -bottom-6 -right-4 md:-right-8 bg-navy-900 border border-bone/10 px-4 py-3 text-[0.65rem] tracking-[0.25em] uppercase text-bone/50"
       >
-        IntelliSite standard — 2025
+        InteliSite standard — 2025
       </motion.div>
     </div>
   );

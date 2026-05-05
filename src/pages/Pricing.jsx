@@ -73,7 +73,7 @@ const TIERS = [
       "90 days post launch support and maintenance plan",
       "Unlimited revisions",
     ],
-    bestFor: "Best for: Premium brands charging £30K+ projects",
+    bestFor: "Best for: Premium brands charging £20K to £80K projects",
     ctaVariant: "ghost",
   },
 ];
@@ -111,7 +111,7 @@ export default function Pricing() {
   return (
     <>
       <Helmet>
-        <title>Pricing — IntelliSite Web Design</title>
+        <title>Pricing — InteliSite Web Design</title>
         <meta
           name="description"
           content="Transparent web design pricing for UK luxury home improvement businesses. Packages from £1,999. Custom websites for bespoke kitchens, bathrooms, loft conversions and premium home services."
@@ -120,15 +120,15 @@ export default function Pricing() {
           name="keywords"
           content="web design pricing UK, luxury home improvement website cost, bespoke kitchen website price, bathroom website design cost, loft conversion website pricing, premium web design packages UK"
         />
-        <link rel="canonical" href="https://www.intellisite.co.uk/pricing" />
-        <meta property="og:title" content="Pricing — IntelliSite Web Design" />
+        <link rel="canonical" href="https://www.intelisite.co.uk/pricing" />
+        <meta property="og:title" content="Pricing — InteliSite Web Design" />
         <meta
           property="og:description"
           content="Transparent web design pricing for UK luxury home improvement businesses. Packages from £1,999."
         />
-        <meta property="og:url" content="https://www.intellisite.co.uk/pricing" />
+        <meta property="og:url" content="https://www.intelisite.co.uk/pricing" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.intellisite.co.uk/og-image.jpg" />
+        <meta property="og:image" content="https://www.intelisite.co.uk/og-image.jpg" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 

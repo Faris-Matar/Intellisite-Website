@@ -83,15 +83,15 @@ export default function Services() {
   return (
     <>
       <Helmet>
-        <title>Web Design Services — IntelliSite</title>
+        <title>Web Design Services — InteliSite</title>
         <meta name="description" content="Premium web design services for UK luxury home improvement businesses. Cinematic, conversion-led websites for bespoke kitchens, luxury bathrooms, loft conversions, and premium home services built to generate enquiries." />
         <meta name="keywords" content="web design services UK, luxury home improvement business website design, bespoke kitchen website design, luxury bathroom website design, loft conversion website, premium home services web design" />
-        <link rel="canonical" href="https://www.intellisite.co.uk/services" />
-        <meta property="og:title" content="Web Design Services — IntelliSite" />
+        <link rel="canonical" href="https://www.intelisite.co.uk/services" />
+        <meta property="og:title" content="Web Design Services — InteliSite" />
         <meta property="og:description" content="Premium web design services for UK luxury home improvement businesses. Cinematic, conversion-led websites built to win clients." />
-        <meta property="og:url" content="https://www.intellisite.co.uk/services" />
+        <meta property="og:url" content="https://www.intelisite.co.uk/services" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.intellisite.co.uk/og-image.jpg" />
+        <meta property="og:image" content="https://www.intelisite.co.uk/og-image.jpg" />
       </Helmet>
 
       {/* ══════════════════════════════════════════
@@ -162,7 +162,7 @@ export default function Services() {
               className="mt-6 text-lg leading-relaxed max-w-xl mx-auto"
               style={{ color: "rgba(232,228,218,0.6)" }}
             >
-              Every IntelliSite project is cinematic, conversion-led, and built
+              Every InteliSite project is cinematic, conversion-led, and built
               specifically for businesses that rely on trust and first impressions.
             </motion.p>
           </div>

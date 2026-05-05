@@ -14,13 +14,13 @@ const OFFERINGS = [
   {
     n: "01",
     title: "Signature Site",
-    lead: "A bespoke cinematic build for the agency that wants to be the obvious choice.",
+    lead: "A bespoke cinematic build for the business that wants to be the obvious choice.",
     points: ["Editorial design direction", "Motion system & micro-interactions", "CMS + analytics"],
   },
   {
     n: "02",
     title: "Conversion Rework",
-    lead: "We restructure your existing site around the way sellers actually decide.",
+    lead: "We restructure your existing site around the way high-end clients actually decide.",
     points: ["Narrative & hierarchy audit", "Mobile-first rebuild", "Enquiry flow redesign"],
   },
   {

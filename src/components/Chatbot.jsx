@@ -38,13 +38,13 @@ const INTENTS = [
     id: "niche",
     keywords: ["kitchen", "bathroom", "loft", "home improvement", "extension", "renovation", "refurbishment", "conversion", "trade", "builder", "contractor", "do you work with"],
     reply:
-      "Absolutely. We work specifically with luxury home improvement businesses — bespoke kitchen companies, high-end bathroom specialists, loft conversion firms, premium extensions, and renovation businesses. If your work commands premium prices, your website should reflect that standard.",
+      "Absolutely. We work specifically with luxury home improvement businesses — bespoke kitchens, luxury bathrooms, loft conversions, and premium extensions. If your work commands premium prices, your website should reflect that standard.",
   },
   {
     id: "portfolio",
     keywords: ["portfolio", "examples", "work", "see", "previous", "clients", "demos", "showcase", "results"],
     reply:
-      "You can see examples of our work on the Portfolio page. We have a real before and after transformation showing what a premium rebuild actually looks like — the difference is stark. Head to the Portfolio tab in the navigation to see it.",
+      "You can see examples of our work on the Portfolio page — bespoke kitchens, luxury bathrooms, and loft conversions. Head to the Portfolio tab in the navigation to see them.",
   },
   {
     id: "contact",
@@ -56,7 +56,7 @@ const INTENTS = [
 
 const GREETING = {
   from: "bot",
-  text: "Hello. I am the IntelliSite assistant. I am here to help — ask me anything about our websites, process, or pricing.",
+  text: "Hello. I am the InteliSite assistant. I am here to help — ask me anything about our websites, process, or pricing.",
 };
 
 function matchIntent(input) {
@@ -173,7 +173,7 @@ export default function Chatbot() {
             exit={{ opacity: 0, y: reducedMotion ? 0 : 12, scale: reducedMotion ? 1 : 0.98 }}
             transition={{ duration: duration.base, ease: ease.silk }}
             role="dialog"
-            aria-label="IntelliSite assistant"
+            aria-label="InteliSite assistant"
             className="fixed bottom-24 right-6 z-50 w-[min(92vw,360px)] flex flex-col"
             style={{
               maxHeight: "70vh",
@@ -198,7 +198,7 @@ export default function Chatbot() {
                   className="font-display italic leading-none mb-1"
                   style={{ color: "rgba(232,228,218,0.9)", fontSize: "1rem" }}
                 >
-                  IntelliSite
+                  InteliSite
                 </p>
                 <div className="flex items-center gap-2">
                   {/* Pulsing gold dot */}

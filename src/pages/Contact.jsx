@@ -35,15 +35,15 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Get In Touch — IntelliSite Web Design</title>
-        <meta name="description" content="Book a free 15-minute discovery call with IntelliSite. We will audit your current website before we speak and come prepared with specific recommendations." />
+        <title>Get In Touch — InteliSite Web Design</title>
+        <meta name="description" content="Book a free 15-minute discovery call with InteliSite. We will audit your current website before we speak and come prepared with specific recommendations." />
         <meta name="keywords" content="contact web design agency UK, book web design consultation, free website audit UK" />
-        <link rel="canonical" href="https://www.intellisite.co.uk/contact" />
-        <meta property="og:title" content="Get In Touch — IntelliSite Web Design" />
+        <link rel="canonical" href="https://www.intelisite.co.uk/contact" />
+        <meta property="og:title" content="Get In Touch — InteliSite Web Design" />
         <meta property="og:description" content="Book a free 15-minute discovery call. We audit your website before we even speak." />
-        <meta property="og:url" content="https://www.intellisite.co.uk/contact" />
+        <meta property="og:url" content="https://www.intelisite.co.uk/contact" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.intellisite.co.uk/og-image.jpg" />
+        <meta property="og:image" content="https://www.intelisite.co.uk/og-image.jpg" />
       </Helmet>
 
       {/* ══════════════════════════════════════════
@@ -384,8 +384,8 @@ export default function Contact() {
             />
             <StripItem
               label="Email"
-              value="hello@intellisite.co.uk"
-              href="mailto:hello@intellisite.co.uk"
+              value="kiran@intelisite.space"
+              href="mailto:kiran@intelisite.space"
             />
             {/* Divider */}
             <div
@@ -395,7 +395,17 @@ export default function Contact() {
             />
             <StripItem
               label="Based In"
-              value="United Kingdom"
+              value={(
+                <>
+                  27 Old Gloucester St
+                  <br />
+                  Holborn, London
+                  <br />
+                  WC1N 3AX
+                  <br />
+                  United Kingdom
+                </>
+              )}
             />
           </div>
         </div>

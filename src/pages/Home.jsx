@@ -26,26 +26,26 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>IntelliSite — Premium Web Design for UK Luxury Home Improvement Businesses</title>
-        <meta name="description" content="IntelliSite builds cinematic, conversion-led websites for UK luxury home improvement businesses including bespoke kitchens, luxury bathrooms, loft conversions, and premium home services. Premium web design that wins clients and books more calls." />
+        <title>InteliSite — Premium Web Design for UK Luxury Home Improvement Businesses</title>
+        <meta name="description" content="InteliSite builds cinematic, conversion-led websites for UK luxury home improvement businesses including bespoke kitchens, luxury bathrooms, loft conversions, and premium home services. Premium web design that wins clients and books more calls." />
         <meta name="keywords" content="web design luxury home improvement businesses UK, bespoke kitchen website design, luxury bathroom website design, loft conversion website, premium home services web design, luxury web design, conversion website UK" />
-        <link rel="canonical" href="https://www.intellisite.co.uk/" />
-        <meta property="og:title" content="IntelliSite — Premium Web Design for UK Luxury Home Improvement Businesses" />
+        <link rel="canonical" href="https://www.intelisite.co.uk/" />
+        <meta property="og:title" content="InteliSite — Premium Web Design for UK Luxury Home Improvement Businesses" />
         <meta property="og:description" content="Cinematic, conversion-led websites for UK luxury home improvement businesses. Design that wins clients." />
-        <meta property="og:url" content="https://www.intellisite.co.uk/" />
+        <meta property="og:url" content="https://www.intelisite.co.uk/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.intellisite.co.uk/og-image.jpg" />
+        <meta property="og:image" content="https://www.intelisite.co.uk/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="IntelliSite — Premium Web Design for UK Luxury Home Improvement Businesses" />
+        <meta name="twitter:title" content="InteliSite — Premium Web Design for UK Luxury Home Improvement Businesses" />
         <meta name="twitter:description" content="Cinematic, conversion-led websites for UK luxury home improvement businesses." />
-        <meta name="twitter:image" content="https://www.intellisite.co.uk/og-image.jpg" />
+        <meta name="twitter:image" content="https://www.intelisite.co.uk/og-image.jpg" />
         <script type="application/ld+json">{`
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "IntelliSite",
+  "name": "InteliSite",
   "description": "Premium web design agency for UK luxury home improvement businesses",
-  "url": "https://www.intellisite.co.uk",
+  "url": "https://www.intelisite.co.uk",
   "areaServed": "United Kingdom",
   "serviceType": "Web Design",
   "priceRange": "££££"

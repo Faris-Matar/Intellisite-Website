@@ -1,6 +1,6 @@
-/* =====================================================
+﻿/* =====================================================
    AURA BATHROOMS — Brand CSS
-   A showcase build by IntelliSite
+   A showcase build by InteliSite
 
    Design intent: Ultra-minimal spa luxury
    Distinct from Hartley (dark/warm/editorial) and
@@ -1342,9 +1342,9 @@ img { display: block; max-width: 100%; height: auto; }
 
 .footer-copy { font-size: 0.76rem; color: rgba(245, 243, 238, 0.24); }
 
-.intellisite-credit { font-size: 0.76rem; color: rgba(245, 243, 238, 0.24); }
-.intellisite-credit a { color: rgba(245, 243, 238, 0.42); transition: color var(--t-fast); }
-.intellisite-credit a:hover { color: var(--accent-light); }
+.InteliSite-credit { font-size: 0.76rem; color: rgba(245, 243, 238, 0.24); }
+.InteliSite-credit a { color: rgba(245, 243, 238, 0.42); transition: color var(--t-fast); }
+.InteliSite-credit a:hover { color: var(--accent-light); }
 
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 1080px) {

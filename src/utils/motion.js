@@ -1,5 +1,5 @@
 /* ============================================================
-   IntelliSite — Global Motion System
+   InteliSite — Global Motion System
    One source of truth for every transition, variant, and easing.
    Philosophy: smooth · minimal · controlled · editorial.
    No bounce. No chaos. No excess.

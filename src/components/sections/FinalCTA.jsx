@@ -100,7 +100,7 @@ export default function FinalCTA() {
           transition={{ duration: duration.slow, ease: ease.silk, delay: 0.6 }}
           className="mt-14 text-[0.7rem] tracking-[0.3em] uppercase text-bone/35"
         >
-          IntelliSite · Designed in the UK
+          InteliSite · Designed in the UK
         </motion.p>
       </div>
     </section>
