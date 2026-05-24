@@ -111,7 +111,17 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-10 pt-6 border-t border-bone/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-bone/40 tracking-wider">
-          <p>© {year} InteliSite. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0">
+            <p>© {year} InteliSite. All rights reserved.</p>
+            <span className="hidden sm:block mx-3 opacity-40">·</span>
+            <div className="flex items-center gap-3 font-sans text-xs text-bone/40">
+              <Link to="/privacy" className="hover:text-bone/70 transition-colors duration-fast ease-io-silk">Privacy Policy</Link>
+              <span aria-hidden="true">·</span>
+              <Link to="/cookies" className="hover:text-bone/70 transition-colors duration-fast ease-io-silk">Cookie Policy</Link>
+              <span aria-hidden="true">·</span>
+              <Link to="/terms" className="hover:text-bone/70 transition-colors duration-fast ease-io-silk">Terms of Use</Link>
+            </div>
+          </div>
           <p className="uppercase tracking-[0.2em]">Designed &amp; built in-house</p>
         </div>
       </div>
