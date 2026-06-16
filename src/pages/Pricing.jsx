@@ -33,6 +33,7 @@ const TIERS = [
       "Stock photography selection",
       "30 day post launch support",
       "2 rounds of revision",
+      "1 month free aftercare included",
     ],
     bestFor: "Best for: Single location businesses with clear service offerings",
     ctaVariant: "ghost",
@@ -53,6 +54,7 @@ const TIERS = [
       "Google Analytics integration",
       "60 days post launch support",
       "3 rounds of revisions",
+      "1 month free aftercare included",
     ],
     bestFor: "Best for: Multiple service businesses targeting high value clients",
     ctaVariant: "filled",
@@ -72,6 +74,7 @@ const TIERS = [
       "Priority support queue",
       "90 days post launch support and maintenance plan",
       "Unlimited revisions",
+      "1 month free aftercare included",
     ],
     bestFor: "Best for: Premium brands charging £20K to £80K projects",
     ctaVariant: "ghost",
@@ -204,6 +207,48 @@ export default function Pricing() {
       </section>
 
       {/* ══════════════════════════════════════════
+          §1b RETAINER BANNER
+          ══════════════════════════════════════════ */}
+      <div className="container-edge">
+        <div
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-3"
+          style={{
+            background: "rgba(201,168,76,0.06)",
+            border: "1px solid rgba(201,168,76,0.2)",
+            borderRadius: "2px",
+            padding: "1.5rem 2rem",
+            marginTop: "0",
+          }}
+        >
+          <span
+            aria-hidden="true"
+            style={{
+              display: "block",
+              flexShrink: 0,
+              width: "1rem",
+              height: "1px",
+              background: "rgba(201,168,76,0.7)",
+              marginTop: "0.6em",
+              alignSelf: "flex-start",
+            }}
+          />
+          <p
+            className="font-sans text-center sm:text-left"
+            style={{ fontSize: "0.82rem", color: "rgba(232,228,218,0.8)", lineHeight: 1.6 }}
+          >
+            All builds include 1 month free aftercare. From month 2, ongoing support is just{" "}
+            <span
+              className="font-medium"
+              style={{ color: "rgba(201,168,76,0.95)" }}
+            >
+              £149/month
+            </span>
+            .
+          </p>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════
           §2  PRICING CARDS
           ══════════════════════════════════════════ */}
       <section
@@ -266,6 +311,146 @@ export default function Pricing() {
             {EXTRAS.map((extra, i) => (
               <ExtraCard key={extra.title} extra={extra} index={i} reduced={reduced} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          §3b ONGOING SUPPORT
+          ══════════════════════════════════════════ */}
+      <section
+        className="relative w-full py-scene-y bg-navy overflow-hidden"
+        style={{ borderTop: "1px solid rgba(232,228,218,0.05)" }}
+      >
+        <div className="container-edge relative">
+          {/* Heading */}
+          <FadeIn>
+            <div className="flex items-center mb-8">
+              <span className="hairline" />
+              <span className="eyebrow">Ongoing Support</span>
+            </div>
+          </FadeIn>
+
+          <motion.h2
+            initial={{ opacity: 0, y: reduced ? 0 : 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewport}
+            transition={{ duration: duration.slow, ease: ease.silk, delay: 0.08 }}
+            className="font-display text-display-md text-bone mb-5"
+            style={{ lineHeight: 1.08 }}
+          >
+            We don&rsquo;t disappear after launch.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: reduced ? 0 : 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewport}
+            transition={{ duration: duration.slow, ease: ease.silk, delay: 0.14 }}
+            className="font-sans mb-14 md:mb-16 max-w-2xl"
+            style={{ fontSize: "0.95rem", lineHeight: 1.7, color: "rgba(232,228,218,0.6)" }}
+          >
+            Every project includes one month of free aftercare. From month two, our £149/month
+            retainer keeps everything running smoothly.
+          </motion.p>
+
+          {/* Single centered retainer card */}
+          <div className="flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: reduced ? 0 : 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ duration: duration.slow, ease: ease.silk, delay: 0.18 }}
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(201,168,76,0.12)",
+                borderRadius: "2px",
+                padding: "2.5rem",
+                maxWidth: "600px",
+                width: "100%",
+              }}
+            >
+              {/* Title */}
+              <p
+                className="font-display text-bone mb-3"
+                style={{ fontSize: "1.5rem", lineHeight: 1.1 }}
+              >
+                Monthly Retainer
+              </p>
+
+              {/* Price */}
+              <p
+                className="font-display mb-2"
+                style={{ fontSize: "2.5rem", lineHeight: 1, color: "rgba(201,168,76,0.95)" }}
+              >
+                £149
+                <span
+                  className="font-sans font-normal"
+                  style={{ fontSize: "1rem", color: "rgba(232,228,218,0.5)", marginLeft: "0.35rem" }}
+                >
+                  /month
+                </span>
+              </p>
+
+              {/* Subtext */}
+              <p
+                className="font-sans mb-8"
+                style={{ fontSize: "0.82rem", lineHeight: 1.5, color: "rgba(232,228,218,0.5)" }}
+              >
+                Starting month 2, after your first month free
+              </p>
+
+              {/* Divider */}
+              <div
+                aria-hidden="true"
+                style={{
+                  width: "100%",
+                  height: "1px",
+                  background: "rgba(201,168,76,0.1)",
+                  marginBottom: "1.75rem",
+                }}
+              />
+
+              {/* Features */}
+              <ul className="space-y-3 mb-6" role="list">
+                {[
+                  "Hosting management",
+                  "Security updates",
+                  "Up to 2 hours of monthly edits or changes",
+                  "Basic analytics report",
+                  "Priority support if anything breaks",
+                ].map((feat) => (
+                  <li key={feat} className="flex items-start gap-3">
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        display: "block",
+                        flexShrink: 0,
+                        marginTop: "0.58em",
+                        width: "1rem",
+                        height: "1px",
+                        background: "rgba(201,168,76,0.7)",
+                      }}
+                    />
+                    <span
+                      className="font-sans text-sm leading-relaxed"
+                      style={{ color: "rgba(232,228,218,0.75)" }}
+                    >
+                      {feat}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Small note */}
+              <p
+                className="font-sans italic"
+                style={{ fontSize: "0.75rem", lineHeight: 1.6, color: "rgba(232,228,218,0.4)" }}
+              >
+                Need more than 2 hours some months? We will always let you know before any extra
+                cost applies.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
