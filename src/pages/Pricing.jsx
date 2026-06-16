@@ -62,7 +62,7 @@ const TIERS = [
   {
     id: "premium",
     name: "Premium",
-    price: "£4,999",
+    price: "£5,499",
     tagline: "The complete solution for luxury brands.",
     popular: false,
     features: [
