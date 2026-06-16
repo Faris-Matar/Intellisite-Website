@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K&amp;I Kitchens | Beautifully Crafted Bespoke Kitchens London</title>
+  <meta name="description" content="K&I Kitchens design and install beautifully crafted bespoke kitchens for homes in and around London. More than 20 years of craftsmanship. Traditional, designer, contemporary and ultra-modern handleless styles." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- INTRO OVERLAY -->
+<div id="s1-intro" aria-hidden="true">
+  <p class="intro-line" id="intro-line-1">Twenty years of craftsmanship.</p>
+  <p class="intro-line" id="intro-line-2">One kitchen at a time.</p>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">K&amp;I</span>
+      <span class="brand-name">Kitchens</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#s6-process">Process</a>
+      <a href="#s9-cta">Contact</a>
+      <a class="btn nav-cta" href="tel:02072840046">020 7284 0046</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══ S2: HERO WITH THREE.JS ═══════════════════════════════ -->
+  <section id="s2-hero" class="scene-section">
+    <!-- Three.js canvas — desktop only -->
+    <canvas id="hero-canvas" class="scene-canvas desktop-only" aria-hidden="true"></canvas>
+
+    <!-- Mobile fallback art -->
+    <div class="hero-fallback-art mobile-fallback" role="img" aria-label="Warm oak kitchen cabinet door detail"></div>
+
+    <!-- Content overlay -->
+    <div class="container scene-overlay">
+      <div class="hero-copy">
+        <span class="eyebrow reveal">K&amp;I Kitchens &middot; London</span>
+        <h1 class="reveal reveal-delay-1">
+          Beautifully crafted.<br>
+          <em>Built to last twenty<br>years and beyond.</em>
+        </h1>
+        <p class="hero-lead reveal reveal-delay-2">
+          We design and install bespoke kitchens for homes across London —
+          in traditional, designer, contemporary, and ultra-modern handleless styles.
+        </p>
+        <div class="button-row reveal reveal-delay-3">
+          <a class="btn" href="portfolio.html">View Our Work</a>
+          <a class="btn-ghost" href="tel:02072840046">Call 020 7284 0046</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ S3: DOOR OPENING ══════════════════════════════════════ -->
+  <section id="s3-door" class="door-section">
+    <!-- The door stage — hidden on mobile, replaced by text -->
+    <div class="door-stage-wrap" aria-hidden="true">
+      <div class="door-stage">
+        <!-- Interior revealed as door opens -->
+        <div class="door-interior">
+          <div class="door-interior-light" aria-hidden="true"></div>
+          <p class="door-reveal-text">
+            Every detail considered.<br>
+            Every joint, every hinge,<br>every finish.
+          </p>
+        </div>
+        <!-- The door panel that rotates open -->
+        <div id="door-panel" class="door-panel">
+          <div class="door-panel-front">
+            <div class="door-handle" aria-hidden="true"></div>
+          </div>
+          <div class="door-panel-back"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile fallback — simple text reveal -->
+    <div class="door-mobile-fallback mobile-fallback reveal">
+      <p class="door-reveal-text" style="opacity:1; position:static; font-size:clamp(1.2rem,4vw,1.6rem); padding:2rem; text-align:center;">
+        Every detail considered.<br>Every joint, every hinge, every finish.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ S4: DRAWER THREE.JS ═══════════════════════════════════ -->
+  <section id="s4-drawer" class="scene-section" style="background: var(--bg-cream);">
+    <canvas id="drawer-canvas" class="scene-canvas desktop-only" aria-hidden="true"></canvas>
+    <!-- Mobile fallback background -->
+    <div class="mobile-fallback" aria-hidden="true" style="
+      display:none;
+      position:absolute; inset:0;
+      background: linear-gradient(160deg, #f5ede0 0%, #e8d8c0 50%, #f0e4d0 100%);
+    "></div>
+    <!-- Content overlay -->
+    <div class="container scene-overlay">
+      <div class="drawer-copy">
+        <span class="eyebrow reveal">Craftsmanship</span>
+        <h2 class="reveal reveal-delay-1">
+          Soft close runners.<br>Solid construction.<br>
+          <em>Built by hand.</em>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ S5: CRAFTSMANSHIP DETAIL ═════════════════════════════ -->
+  <section id="s5-craft" class="craft-section">
+    <div class="craft-inner">
+      <p class="craft-headline eyebrow">The Detail</p>
+      <div class="craft-panels">
+        <div class="craft-panel" id="cp1">
+          <div class="craft-art craft-art--oak" role="img" aria-label="Oak wood grain texture showing natural warmth and character"></div>
+          <p class="craft-label">The grain.</p>
+        </div>
+        <div class="craft-panel" id="cp2">
+          <div class="craft-art craft-art--brass" role="img" aria-label="Brushed brass hardware texture with warm golden tones"></div>
+          <p class="craft-label">The hardware.</p>
+        </div>
+        <div class="craft-panel" id="cp3">
+          <div class="craft-art craft-art--stone" role="img" aria-label="Light stone countertop texture with subtle veining"></div>
+          <p class="craft-label">The surface.</p>
+        </div>
+      </div>
+      <p class="craft-finale">This is what twenty years of craft looks like.</p>
+    </div>
+  </section>
+
+  <!-- ═══ S6: PROCESS ═══════════════════════════════════════════ -->
+  <section id="s6-process" class="section" style="background: var(--bg-cream);">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow reveal">How We Work</span>
+        <h2 class="reveal reveal-delay-1">
+          No pressure. No obligation.<br>
+          <em>Just craftsmanship.</em>
+        </h2>
+      </div>
+      <div class="process-strip">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <h3>Consultation</h3>
+          <p>There's no obligation when you contact us. We listen first — to how you live, what your kitchen fails to deliver, and what your ideal home should feel like.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3>Design</h3>
+          <p>Traditional, designer, contemporary, or ultra-modern handleless. Your home, your style — developed by our designers around your brief, not a catalogue.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3>Craft</h3>
+          <p>Every kitchen we make is designed and installed for homes across London. Each component is chosen and fitted with the same care that has kept our clients happy for more than 20 years.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num">04</div>
+          <h3>Aftercare</h3>
+          <p>Decades of experience means we stand behind every kitchen we build. Our comprehensive aftercare means you can cook with confidence from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ S7: FEATURED IN ═══════════════════════════════════════ -->
+  <section id="s7-featured" class="featured-strip">
+    <div class="container">
+      <p class="featured-label eyebrow reveal">As Featured In</p>
+      <p class="featured-name reveal reveal-delay-1">25 Beautiful Homes</p>
+      <p class="featured-sub reveal reveal-delay-2">Recognised by the UK's leading interiors publication</p>
+    </div>
+  </section>
+
+  <!-- ═══ S8: PROJECT PREVIEW ═══════════════════════════════════ -->
+  <section id="s8-projects" class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow reveal">Recent Work</span>
+        <h2 class="reveal reveal-delay-1">
+          Muswell Hill. Bermondsey.<br>
+          <em>And everywhere in between.</em>
+        </h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <a href="portfolio.html" class="project-card-link" aria-label="View Muswell Hill kitchen project">
+            <div class="project-art project-art--muswell" role="img" aria-label="Muswell Hill kitchen — warm oak tones with natural light"></div>
+            <div class="project-overlay">
+              <span class="project-view-label">View Project &rarr;</span>
+            </div>
+          </a>
+          <div class="project-meta">
+            <h3 class="project-name">Muswell Hill</h3>
+            <p class="project-desc">A traditional-contemporary kitchen design finished in warm oak tones, built around the natural light of a Victorian terrace.</p>
+          </div>
+        </article>
+        <article class="project-card reveal reveal-delay-1">
+          <a href="portfolio.html" class="project-card-link" aria-label="View Bermondsey kitchen project">
+            <div class="project-art project-art--bermondsey" role="img" aria-label="Bermondsey kitchen — contemporary with warm brass accents"></div>
+            <div class="project-overlay">
+              <span class="project-view-label">View Project &rarr;</span>
+            </div>
+          </a>
+          <div class="project-meta">
+            <h3 class="project-name">Bermondsey</h3>
+            <p class="project-desc">A contemporary handleless design in light grey with warm brass hardware — a calm, considered kitchen for a converted warehouse apartment.</p>
+          </div>
+        </article>
+      </div>
+      <div class="section-cta reveal">
+        <a class="btn-text" href="portfolio.html">Explore the full portfolio &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ S9: CLOSING CTA ═══════════════════════════════════════ -->
+  <section id="s9-cta" class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="eyebrow reveal">Get In Touch</span>
+        <h2 class="reveal reveal-delay-1">
+          Ready to design the kitchen<br>
+          <em>you have always wanted?</em>
+        </h2>
+        <p class="cta-lead reveal reveal-delay-2">
+          There's no obligation when you get in touch. Let's talk about your space,
+          your style, and what's possible. We'd love to visit you and see your kitchen for ourselves.
+        </p>
+        <div class="button-row button-row--center reveal reveal-delay-3">
+          <a class="btn" href="tel:02072840046">Call 020 7284 0046</a>
+          <a class="btn-ghost" href="portfolio.html">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <span class="footer-brand">K&amp;I Kitchens</span>
+      <span class="footer-phone"><a href="tel:02072840046">020 7284 0046</a></span>
+      <span class="footer-location">London</span>
+    </div>
+    <div class="footer-base">
+      <p class="intelisite-credit">A showcase concept by <a href="../../index.html">InteliSite</a> &mdash; intelisite.space</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
