@@ -1115,8 +1115,8 @@ p {
   }
 }
 
-/* ─── RESPONSIVE: MOBILE (768px) ─────────────────────────────── */
-@media (max-width: 768px) {
+/* ─── RESPONSIVE: MOBILE (640px) ─────────────────────────────── */
+@media (max-width: 640px) {
 
   /* Nav becomes hamburger */
   .nav-toggle {
