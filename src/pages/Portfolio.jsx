@@ -17,6 +17,15 @@ const CALENDLY = "https://calendly.com/kiran-intelisite/15-min-discovery-call";
 /* ── Demo card data ── */
 const DEMOS = [
   {
+    name:   "K&I Kitchens",
+    tag:    "BESPOKE KITCHENS · LONDON",
+    desc:   "A cinematic scroll-story demo for a real London kitchen company with 20+ years of craft. Three.js, GSAP ScrollTrigger, and a cabinet door that opens as you scroll.",
+    href:   "/demos/kandi/index.html",
+    btn:    "View Demo",
+    newTab: true,
+    flagship: true,
+  },
+  {
     name:   "Hartley & Co Kitchens",
     tag:    "BESPOKE KITCHENS · SOUTH LONDON",
     desc:   "A bespoke kitchen company repositioned as a premium digital brand.",
@@ -168,8 +177,8 @@ export default function Portfolio() {
             Built to a standard.
           </motion.h2>
 
-          {/* Cards — 3-col desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Cards — 2-col tablet, 4-col desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
             {DEMOS.map((demo, i) => (
               <DemoCard key={demo.name} demo={demo} index={i} reduced={reduced} />
             ))}
@@ -353,6 +362,16 @@ function DemoCard({ demo, index, reduced }) {
           />
 
           <div className="relative">
+            {/* Flagship badge */}
+            {demo.flagship && (
+              <p
+                className="font-sans mb-3"
+                style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,168,76,1)", background: "rgba(201,168,76,0.1)", display: "inline-block", padding: "0.25rem 0.6rem", marginBottom: "0.6rem" }}
+              >
+                New · Flagship Demo
+              </p>
+            )}
+
             {/* Tag */}
             <p
               className="font-sans mb-4"

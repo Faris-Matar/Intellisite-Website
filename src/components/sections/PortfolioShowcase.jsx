@@ -14,6 +14,14 @@ import Button from "@/components/Button";
 
 const WORKS = [
   {
+    id: "kandi",
+    title: "K&I Kitchens",
+    sector: "Bespoke Kitchens · London",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop",
+    href: "/demos/kandi/index.html",
+    badge: "New",
+  },
+  {
     id: "hartley",
     title: "Hartley & Co Kitchens",
     sector: "Luxury Kitchen Design",
@@ -76,7 +84,7 @@ export default function PortfolioShowcase() {
               transition={{ duration: duration.slow, ease: ease.silk }}
               className="font-display text-display-md text-bone leading-[1.05]"
             >
-              Three live builds.
+              Four live builds.
               <span className="block italic text-bone/50">One standard.</span>
             </motion.h2>
           </div>
@@ -97,7 +105,7 @@ export default function PortfolioShowcase() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
           {WORKS.map((w, i) => (
             <ShowcaseCard key={w.id} work={w} index={i} />
           ))}
@@ -152,10 +160,16 @@ function ShowcaseCard({ work, index }) {
           className="absolute left-8 right-8 top-8 h-[1px] bg-gold origin-left"
           aria-hidden="true"
         />
-        {/* Corner mark */}
-        <span className="absolute top-6 right-6 text-[0.6rem] tracking-[0.3em] uppercase text-bone/40">
-          0{index + 1}
-        </span>
+        {/* Corner mark / badge */}
+        {work.badge ? (
+          <span className="absolute top-6 right-6 text-[0.6rem] tracking-[0.2em] uppercase px-2 py-1" style={{ background: "rgba(201,168,76,1)", color: "#0D1B2A" }}>
+            {work.badge}
+          </span>
+        ) : (
+          <span className="absolute top-6 right-6 text-[0.6rem] tracking-[0.3em] uppercase text-bone/40">
+            0{index + 1}
+          </span>
+        )}
         {/* Label */}
         <div className="absolute left-6 right-6 bottom-6">
           <p className="text-[0.65rem] tracking-[0.25em] uppercase text-bone/50 mb-2">

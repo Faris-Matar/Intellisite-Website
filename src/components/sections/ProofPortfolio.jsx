@@ -19,6 +19,13 @@ const METRICS = [
 
 const DEMOS = [
   {
+    name: "K&I Kitchens",
+    type: "BESPOKE KITCHENS · LONDON",
+    desc: "A real London kitchen company with 20+ years of craft. Cinematic scroll story with Three.js and GSAP — our most advanced demo yet.",
+    href: "/demos/kandi/index.html",
+    badge: "New",
+  },
+  {
     name: "Hartley & Co Kitchens",
     type: "BESPOKE KITCHENS · LONDON",
     desc: "Hartley's £40K kitchen projects were invisible online. Now their website generates consultation requests before the phone rings.",
@@ -117,7 +124,7 @@ function PartC({ reduced }) {
         </p>
       </FadeIn>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         {DEMOS.map((demo, i) => (
           <DemoCard key={demo.name} demo={demo} index={i} reduced={reduced} />
         ))}
@@ -166,6 +173,12 @@ function DemoCard({ demo, index, reduced }) {
         />
 
         <div className="relative">
+          {/* Badge */}
+          {demo.badge && (
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase mb-3 inline-block px-2 py-1" style={{ background: "rgba(201,168,76,1)", color: "#0D1B2A" }}>
+              {demo.badge}
+            </p>
+          )}
           {/* Type tag */}
           <p className="text-[0.68rem] tracking-[0.22em] uppercase text-gold/70 mb-4">
             {demo.type}
