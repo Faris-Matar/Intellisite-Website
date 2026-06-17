@@ -13,6 +13,9 @@
 </head>
 <body>
 
+<!-- SINGLE THREE.JS CANVAS — fixed overlay, z-index 5, transparent when idle -->
+<canvas id="three-canvas" aria-hidden="true"></canvas>
+
 <!-- INTRO OVERLAY -->
 <div id="s1-intro" aria-hidden="true">
   <p class="intro-line" id="intro-line-1">Twenty years of craftsmanship.</p>
@@ -45,10 +48,7 @@
 
   <!-- ═══ S2: HERO WITH THREE.JS ═══════════════════════════════ -->
   <section id="s2-hero" class="scene-section">
-    <!-- Three.js canvas — desktop only -->
-    <canvas id="hero-canvas" class="scene-canvas desktop-only" aria-hidden="true"></canvas>
-
-    <!-- Mobile fallback art -->
+    <!-- Mobile fallback art (desktop sees the fixed three-canvas) -->
     <div class="hero-fallback-art mobile-fallback" role="img" aria-label="Warm oak kitchen cabinet door detail"></div>
 
     <!-- Content overlay -->
@@ -103,8 +103,7 @@
 
   <!-- ═══ S4: DRAWER THREE.JS ═══════════════════════════════════ -->
   <section id="s4-drawer" class="scene-section" style="background: var(--bg-cream);">
-    <canvas id="drawer-canvas" class="scene-canvas desktop-only" aria-hidden="true"></canvas>
-    <!-- Mobile fallback background -->
+    <!-- Mobile fallback background (desktop sees the fixed three-canvas) -->
     <div class="mobile-fallback" aria-hidden="true" style="
       display:none;
       position:absolute; inset:0;

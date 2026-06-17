@@ -373,6 +373,18 @@ p {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
+/* ─── SINGLE THREE.JS CANVAS — fixed overlay ─────────────────── */
+#three-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  display: none; /* JS enables on desktop only */
+}
+
 /* ─── INTRO OVERLAY ───────────────────────────────────────────── */
 #s1-intro {
   position: fixed;
@@ -610,24 +622,47 @@ p {
 
 .craft-art--oak {
   background:
-    repeating-linear-gradient(93deg, transparent 0, transparent 2px, rgba(168,122,82,0.08) 2px, rgba(168,122,82,0.08) 3px),
-    repeating-linear-gradient(87deg, transparent 0, transparent 6px, rgba(140,100,60,0.05) 6px, rgba(140,100,60,0.05) 7px),
-    repeating-linear-gradient(89deg, transparent 0, transparent 15px, rgba(120,80,40,0.04) 15px, rgba(120,80,40,0.04) 16px),
-    linear-gradient(180deg, #d4a870 0%, #c08040 25%, #d8ac78 50%, #b87840 75%, #d4a870 100%);
+    repeating-linear-gradient(
+      11deg,
+      transparent 0, transparent 7px,
+      rgba(70, 35, 8, 0.18) 7px, rgba(70, 35, 8, 0.18) 8px
+    ),
+    repeating-linear-gradient(
+      89deg,
+      transparent 0, transparent 22px,
+      rgba(90, 50, 12, 0.10) 22px, rgba(90, 50, 12, 0.10) 23px
+    ),
+    linear-gradient(165deg, #c8883c 0%, #a06020 30%, #d8a060 55%, #b07030 80%, #c8883c 100%);
 }
 
 .craft-art--brass {
   background:
-    repeating-linear-gradient(0deg, transparent 0, transparent 4px, rgba(255,220,100,0.1) 4px, rgba(255,220,100,0.1) 5px),
-    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(200,160,40,0.06) 2px, rgba(200,160,40,0.06) 3px),
-    linear-gradient(90deg, #c8a840 0%, #ddb850 15%, #e8cc68 40%, #d4ac44 60%, #ddb850 80%, #c8a840 100%);
+    repeating-linear-gradient(
+      0deg,
+      transparent 0, transparent 2px,
+      rgba(140, 95, 5, 0.18) 2px, rgba(140, 95, 5, 0.18) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0, transparent 1px,
+      rgba(210, 160, 20, 0.12) 1px, rgba(210, 160, 20, 0.12) 2px
+    ),
+    linear-gradient(82deg, #b89020 0%, #d8b030 22%, #f0d050 48%, #c8a028 72%, #b89020 100%);
 }
 
 .craft-art--stone {
   background:
-    repeating-linear-gradient(115deg, transparent 0, transparent 12px, rgba(200,190,180,0.15) 12px, rgba(200,190,180,0.15) 14px),
-    repeating-linear-gradient(125deg, transparent 0, transparent 20px, rgba(180,170,165,0.08) 20px, rgba(180,170,165,0.08) 21px),
-    linear-gradient(150deg, #f0ece8 0%, #e8e4e0 30%, #ece8e4 60%, #e4e0dc 100%);
+    repeating-linear-gradient(
+      118deg,
+      transparent 0, transparent 16px,
+      rgba(120, 110, 100, 0.22) 16px, rgba(120, 110, 100, 0.22) 17px
+    ),
+    repeating-linear-gradient(
+      134deg,
+      transparent 0, transparent 28px,
+      rgba(140, 130, 118, 0.14) 28px, rgba(140, 130, 118, 0.14) 29px
+    ),
+    linear-gradient(148deg, #ece8e3 0%, #e2ddd7 28%, #e8e4df 54%, #d8d3cd 80%, #e6e1dc 100%);
 }
 
 .craft-label {
