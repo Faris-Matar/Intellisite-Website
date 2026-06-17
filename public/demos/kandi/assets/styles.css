@@ -451,9 +451,9 @@ p {
   width: 100%;
   height: 300px;
   border-radius: 4px;
-  background:
-    repeating-linear-gradient(3deg, transparent 0, transparent 22px, rgba(255,240,200,0.06) 22px, rgba(255,240,200,0.06) 23px),
-    linear-gradient(135deg, #d4a870 0%, #a87040 30%, #c89060 60%, #b87840 100%);
+  background-image: url('../images/kandi-kitchen-muswell-hill.jpg');
+  background-size: cover;
+  background-position: center 30%;
   margin-bottom: 2rem;
 }
 
@@ -756,9 +756,9 @@ p {
 }
 
 .project-art--muswell {
-  background:
-    repeating-linear-gradient(3deg, transparent 0, transparent 25px, rgba(255,240,200,0.05) 25px, rgba(255,240,200,0.05) 26px),
-    linear-gradient(160deg, #f0e8d8 0%, #e8d8c0 25%, #d4c4a0 50%, #e0d0b0 75%, #ece0c8 100%);
+  background-image: url('../images/kandi-kitchen-muswell-hill.jpg');
+  background-size: cover;
+  background-position: center 20%;
 }
 
 .project-art--muswell::before {
@@ -766,23 +766,13 @@ p {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 40%;
-  background: linear-gradient(0deg, rgba(240,232,220,0.9) 0%, transparent 100%);
-}
-
-.project-art--muswell::after {
-  content: '';
-  position: absolute;
-  top: 15%; left: 10%; right: 10%;
-  height: 50%;
-  background:
-    linear-gradient(90deg, transparent 0%, rgba(255,252,248,0.4) 30%, rgba(255,252,248,0.6) 50%, rgba(255,252,248,0.4) 70%, transparent 100%);
-  border-radius: 2px;
+  background: linear-gradient(0deg, rgba(26,26,26,0.5) 0%, transparent 100%);
 }
 
 .project-art--bermondsey {
-  background:
-    repeating-linear-gradient(95deg, transparent 0, transparent 30px, rgba(200,210,220,0.06) 30px, rgba(200,210,220,0.06) 31px),
-    linear-gradient(150deg, #e8eaec 0%, #dce0e4 25%, #d0d4d8 50%, #dce0e4 75%, #e4e8ec 100%);
+  background-image: url('../images/kandi-kitchen-bermondsey.jpg');
+  background-size: cover;
+  background-position: center 25%;
 }
 
 .project-art--bermondsey::before {
@@ -790,16 +780,7 @@ p {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 35%;
-  background: linear-gradient(0deg, rgba(220,224,228,0.85) 0%, transparent 100%);
-}
-
-.project-art--bermondsey::after {
-  content: '';
-  position: absolute;
-  top: 20%; left: 8%; right: 8%;
-  height: 45%;
-  background: linear-gradient(90deg, transparent 0%, rgba(200,168,80,0.15) 40%, rgba(200,168,80,0.2) 50%, rgba(200,168,80,0.15) 60%, transparent 100%);
-  border-radius: 1px;
+  background: linear-gradient(0deg, rgba(26,26,26,0.5) 0%, transparent 100%);
 }
 
 .project-overlay {
@@ -1065,19 +1046,27 @@ p {
 }
 
 .style-art--traditional {
-  background: linear-gradient(135deg, #e8dcc8 0%, #d4c4a8 40%, #c8b898 70%, #dcd0b8 100%);
+  background-image: url('../images/kandi-kitchen-traditional.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .style-art--designer {
-  background: linear-gradient(135deg, #d8c4a8 0%, #c8b090 30%, #e0ccb0 60%, #d0bc98 100%);
+  background-image: url('../images/kandi-kitchen-dark-detail.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .style-art--contemporary {
-  background: linear-gradient(135deg, #e4e8ec 0%, #d8dce0 35%, #dce0e4 65%, #e0e4e8 100%);
+  background-image: url('../images/kandi-kitchen-handleless.jpg');
+  background-size: cover;
+  background-position: center 30%;
 }
 
 .style-art--handleless {
-  background: linear-gradient(135deg, #ececec 0%, #e4e4e4 30%, #f0f0f0 60%, #e8e8e8 100%);
+  background-image: url('../images/kandi-kitchen-handleless.jpg');
+  background-size: cover;
+  background-position: center 60%;
 }
 
 .style-card h3 {
@@ -1099,9 +1088,9 @@ p {
   height: clamp(280px, 45vw, 500px);
   border-radius: 4px;
   margin-top: 3rem;
-  background:
-    repeating-linear-gradient(3deg, transparent 0, transparent 22px, rgba(255,240,200,0.05) 22px, rgba(255,240,200,0.05) 23px),
-    linear-gradient(160deg, #e8dcc8 0%, #d4c4a8 30%, #c8b898 55%, #dcd0b8 80%, #ece4d4 100%);
+  background-image: url('../images/kandi-kitchen-muswell-hill.jpg');
+  background-size: cover;
+  background-position: center 30%;
 }
 
 /* ─── REDUCED MOTION ──────────────────────────────────────────── */
