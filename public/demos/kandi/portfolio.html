@@ -10,98 +10,114 @@
 </head>
 <body>
 
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
 <!-- HEADER -->
-<header class="site-header">
-  <div class="container nav-shell">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">K&amp;I</span>
-      <span class="brand-name">Kitchens</span>
+<header class="site-header" id="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="K&I Kitchens home">
+      <span class="brand-mark">K&amp;I</span><span class="brand-name">KITCHENS</span>
     </a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a class="active" href="portfolio.html">Portfolio</a>
-      <a href="index.html#s6-process">Process</a>
-      <a href="#cta">Contact</a>
-      <a class="btn nav-cta" href="tel:02072840046">020 7284 0046</a>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#s-services" class="nav-link">Kitchens</a>
+      <a href="index.html#s-process" class="nav-link">Process</a>
+      <a href="portfolio.html" class="nav-link active">Portfolio</a>
+      <a href="#s-contact" class="nav-link">Contact</a>
     </nav>
-    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+    <a href="#s-contact" class="nav-cta">Book a Consultation</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
+<!-- MOBILE OVERLAY MENU -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation">&times;</button>
+  <nav class="mobile-menu-links" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="index.html#s-services">Kitchens</a>
+    <a href="index.html#s-process">Process</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="#s-contact">Contact</a>
+    <a href="#s-contact" class="mobile-menu-cta">Book a Consultation</a>
+  </nav>
+</div>
+
 <main>
 
   <!-- ═══ PORTFOLIO HERO ════════════════════════════════════════ -->
-  <section class="portfolio-hero">
+  <section class="page-hero">
     <div class="container">
-      <span class="eyebrow reveal">Our Work</span>
-      <h1 class="reveal reveal-delay-1">
-        Kitchens built for the way<br>
-        <em>London lives.</em>
-      </h1>
-      <p class="reveal reveal-delay-2" style="font-size:1.05rem; margin-top:1.25rem; max-width:56ch; color:var(--body);">
-        We have been providing happy clients with beautifully crafted bespoke kitchens for more than 20 years — across London and beyond. Each one is designed around the home, the family, and the way people really cook.
+      <span class="eyebrow reveal-item">Our Work</span>
+      <h1 class="page-hero-title reveal-item">Kitchens built for the way<br>London lives.</h1>
+      <p class="page-hero-lead reveal-item">
+        We have been providing happy clients with beautifully crafted bespoke
+        kitchens for more than 20 years — across London and beyond. Each one is
+        designed around the home, the family, and the way people really cook.
       </p>
-      <!-- Hero art — CSS gradient kitchen illustration -->
-      <div class="portfolio-hero-art reveal reveal-delay-3" role="img" aria-label="Panoramic kitchen interior — warm tones and natural materials"></div>
+      <img class="page-hero-image reveal-item wipe-up" src="assets/images/kandi-kitchen-handleless.jpg" alt="Panoramic K&I kitchen interior in warm natural materials" loading="lazy" />
     </div>
   </section>
 
   <!-- ═══ PROJECT ENTRIES ═══════════════════════════════════════ -->
-  <section class="portfolio-projects">
+  <section class="pf-projects">
     <div class="container">
 
-      <!-- Project 1: Muswell Hill -->
-      <div class="portfolio-entry reveal">
-        <div class="portfolio-art-wrap">
-          <div class="portfolio-art project-art--muswell" role="img" aria-label="Muswell Hill kitchen installation — warm oak with natural light"></div>
+      <!-- Muswell Hill -->
+      <div class="pf-entry">
+        <div class="pf-image-wrap reveal-item wipe-left">
+          <img class="pf-image" src="assets/images/kandi-kitchen-muswell-hill.jpg" alt="Muswell Hill kitchen installation in warm oak with natural light" loading="lazy" />
         </div>
-        <div class="portfolio-detail">
+        <div class="pf-detail reveal-item">
           <span class="eyebrow">Muswell Hill</span>
-          <h2>
-            A Victorian terrace,<br>
-            <em>reimagined.</em>
-          </h2>
+          <h2 class="section-title">A Victorian terrace,<br>reimagined.</h2>
           <p>
-            This Victorian terrace in Muswell Hill called for a kitchen that honoured the character of the house while delivering a contemporary, family-friendly space. We worked closely with the client to develop a traditional-contemporary design finished in warm oak, with brass hardware and a hand-painted island.
+            This Victorian terrace called for a kitchen that honoured the
+            character of the house while delivering a contemporary,
+            family-friendly space. We developed a traditional-contemporary
+            design finished in warm oak, with brass hardware and a hand-painted
+            island.
           </p>
           <p>
-            Natural light was central to the brief. The layout was opened up to the garden, and cabinetry heights were adjusted to draw daylight deep into the kitchen. Every piece was hand-crafted and installed by our team.
+            Natural light was central to the brief. The layout was opened up to
+            the garden, and cabinetry heights were adjusted to draw daylight
+            deep into the kitchen.
           </p>
-          <div style="margin-top:1.25rem;">
-            <span class="portfolio-tag">Traditional</span>
-            <span class="portfolio-tag">Oak</span>
-            <span class="portfolio-tag">Brass Hardware</span>
-            <span class="portfolio-tag">North London</span>
+          <div class="pf-tags">
+            <span class="pf-tag">Traditional</span>
+            <span class="pf-tag">Oak</span>
+            <span class="pf-tag">Brass Hardware</span>
+            <span class="pf-tag">North London</span>
           </div>
         </div>
       </div>
 
-      <!-- Project 2: Bermondsey -->
-      <div class="portfolio-entry portfolio-entry--reverse reveal">
-        <div class="portfolio-art-wrap">
-          <div class="portfolio-art project-art--bermondsey" role="img" aria-label="Bermondsey kitchen installation — contemporary grey with brass handles"></div>
+      <!-- Bermondsey -->
+      <div class="pf-entry pf-entry--reverse">
+        <div class="pf-image-wrap reveal-item wipe-left">
+          <img class="pf-image" src="assets/images/kandi-kitchen-bermondsey.jpg" alt="Bermondsey kitchen installation in dark walnut with brass handles" loading="lazy" />
         </div>
-        <div class="portfolio-detail">
+        <div class="pf-detail reveal-item">
           <span class="eyebrow">Bermondsey</span>
-          <h2>
-            Warehouse calm,<br>
-            <em>beautifully resolved.</em>
-          </h2>
+          <h2 class="section-title">Warehouse calm,<br>beautifully resolved.</h2>
           <p>
-            A converted warehouse apartment in Bermondsey. The brief was for a calm, considered kitchen that felt at home in the open-plan, double-height space without fighting the industrial architecture.
+            A converted warehouse apartment. The brief was for a calm,
+            considered kitchen that felt at home in the open-plan, double-height
+            space without fighting the industrial architecture.
           </p>
           <p>
-            We designed an ultra-modern handleless kitchen in warm light grey with carefully chosen brass hardware as the only decorative note. The result is a kitchen that feels both bold and serene — and works beautifully for both everyday cooking and entertaining.
+            We designed an ultra-modern handleless kitchen in warm walnut with
+            carefully chosen brass hardware as the only decorative note — bold
+            and serene at once.
           </p>
-          <div style="margin-top:1.25rem;">
-            <span class="portfolio-tag">Contemporary</span>
-            <span class="portfolio-tag">Handleless</span>
-            <span class="portfolio-tag">Light Grey</span>
-            <span class="portfolio-tag">South London</span>
+          <div class="pf-tags">
+            <span class="pf-tag">Contemporary</span>
+            <span class="pf-tag">Handleless</span>
+            <span class="pf-tag">Walnut</span>
+            <span class="pf-tag">South London</span>
           </div>
         </div>
       </div>
@@ -109,187 +125,124 @@
     </div>
   </section>
 
-  <!-- ═══ STYLE RANGE ════════════════════════════════════════════ -->
-  <section class="styles-section">
+  <!-- ═══ STYLE RANGE ═══════════════════════════════════════════ -->
+  <section class="range">
     <div class="container">
-      <div class="section-heading" style="text-align:center;">
-        <span class="eyebrow reveal">Our Range</span>
-        <h2 class="reveal reveal-delay-1">
-          Four styles.<br>
-          <em>One standard of craftsmanship.</em>
-        </h2>
-        <p class="reveal reveal-delay-2" style="margin:1.25rem auto 0; text-align:center; max-width:54ch;">
-          Whatever your home, we design around it. Our four kitchen styles cover the full spectrum of London living — from period properties to modern apartments.
-        </p>
+      <div class="section-head section-head--center reveal-item">
+        <span class="eyebrow">Our Range</span>
+        <h2 class="section-title">Four styles.<br>One standard of craftsmanship.</h2>
       </div>
-      <div class="styles-grid">
-        <div class="style-card reveal">
-          <div class="style-art style-art--traditional" role="img" aria-label="Traditional kitchen style — warm cream tones with classic cabinetry"></div>
+      <div class="range-grid" data-stagger>
+        <div class="range-card reveal-item">
+          <img class="range-img" src="assets/images/kandi-kitchen-traditional.jpg" alt="Traditional kitchen style in warm cream tones" loading="lazy" />
           <h3>Traditional</h3>
-          <p>Shaker-influenced cabinetry, heritage colour palettes, and hand-crafted detail. Our traditional kitchens feel timeless rather than dated — a considered nod to craftsmanship with modern functionality throughout.</p>
+          <p>Shaker-influenced cabinetry, heritage colour palettes, and hand-crafted detail. Timeless rather than dated — a considered nod to craftsmanship with modern functionality throughout.</p>
         </div>
-        <div class="style-card reveal reveal-delay-1">
-          <div class="style-art style-art--designer" role="img" aria-label="Designer kitchen style — rich warm tones with bespoke detail"></div>
+        <div class="range-card reveal-item">
+          <img class="range-img" src="assets/images/kandi-kitchen-dark-detail.jpg" alt="Designer kitchen style in rich warm tones with bespoke detail" loading="lazy" />
           <h3>Designer</h3>
-          <p>For clients who want something genuinely individual. Our designer range draws on a wider palette of materials — unlacquered brass, tumbled stone, hand-formed concrete — and is always bespoke from the first sketch.</p>
+          <p>For clients who want something genuinely individual. A wider palette of materials — unlacquered brass, tumbled stone, hand-formed concrete — always bespoke from the first sketch.</p>
         </div>
-        <div class="style-card reveal reveal-delay-2">
-          <div class="style-art style-art--contemporary" role="img" aria-label="Contemporary kitchen style — cool greys with clean proportions"></div>
+        <div class="range-card reveal-item">
+          <img class="range-img" src="assets/images/kandi-kitchen-bermondsey.jpg" alt="Contemporary kitchen style with clean proportions" loading="lazy" />
           <h3>Contemporary</h3>
-          <p>Clean proportions, restrained detail, and a focus on quality materials. Our contemporary kitchens suit modern extensions and open-plan spaces where the kitchen becomes a living room as much as a cooking space.</p>
+          <p>Clean proportions, restrained detail, and a focus on quality materials. Suited to modern extensions and open-plan spaces where the kitchen becomes a living room.</p>
         </div>
-        <div class="style-card reveal reveal-delay-3">
-          <div class="style-art style-art--handleless" role="img" aria-label="Ultra-modern handleless kitchen style — seamless and minimal"></div>
+        <div class="range-card reveal-item">
+          <img class="range-img" src="assets/images/kandi-kitchen-handleless.jpg" alt="Ultra-modern handleless kitchen style, seamless and minimal" loading="lazy" />
           <h3>Ultra-Modern Handleless</h3>
-          <p>A seamless, handle-free aesthetic that rewards close-up detail. Push-to-open mechanisms, flush doors, and precision-engineered finishes make our handleless range a favourite for contemporary London apartments.</p>
+          <p>A seamless, handle-free aesthetic that rewards close-up detail. Push-to-open mechanisms, flush doors, and precision-engineered finishes for contemporary London apartments.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ FEATURED IN ═══════════════════════════════════════════ -->
-  <section class="featured-strip reveal">
-    <div class="container">
-      <p class="featured-label eyebrow">As Featured In</p>
+  <section class="featured">
+    <div class="container featured-inner reveal-item">
+      <span class="eyebrow">As Seen In</span>
       <p class="featured-name">25 Beautiful Homes</p>
-      <p class="featured-sub">Recognised by the UK's leading interiors publication</p>
+      <p class="featured-sub">The UK&rsquo;s leading luxury interiors publication</p>
     </div>
   </section>
 
   <!-- ═══ SHOWROOM CALLOUT ══════════════════════════════════════ -->
-  <section class="section" style="background: var(--bg);">
+  <section class="showroom">
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
-        <div class="reveal">
+      <div class="showroom-grid">
+        <div class="showroom-copy reveal-item">
           <span class="eyebrow">Visit Us</span>
-          <h2 style="margin-top:0.75rem;">
-            Come and see for<br>
-            <em>yourself.</em>
-          </h2>
-          <p style="margin-top:1.25rem;">
-            Our showroom is the best place to understand the quality of what we do. Touch the materials, open the doors, pull the drawers. There is no substitute for seeing and feeling the craftsmanship in person.
+          <h2 class="section-title">Come and see<br>for yourself.</h2>
+          <p>
+            Our showroom is the best place to understand the quality of what we
+            do. Touch the materials, open the doors, pull the drawers. There is
+            no substitute for seeing the craftsmanship in person.
           </p>
-          <p style="margin-top:1rem;">
-            And of course — there's no obligation when contacting us. We're here to help you think through the project, not to sell you something you don't need.
+          <p>
+            There is no obligation when contacting us. We are here to help you
+            think through the project, not to sell you something you don&rsquo;t need.
           </p>
-          <div class="button-row" style="margin-top:2rem;">
-            <a class="btn" href="tel:02072840046">Call 020 7284 0046</a>
-          </div>
+          <a class="btn btn-solid" href="tel:02072840046">Call 020 7284 0046</a>
         </div>
-        <div class="reveal reveal-delay-1">
-          <div style="
-            height: clamp(280px, 40vw, 440px);
-            border-radius: 4px;
-            background-image: url('assets/images/kandi-kitchen-traditional.jpg');
-            background-size: cover;
-            background-position: center;
-            border: 1px solid var(--line);
-          " role="img" aria-label="K&I Kitchens showroom interior — warm materials on display"></div>
-        </div>
+        <img class="showroom-img reveal-item wipe-left" src="assets/images/kandi-kitchen-traditional.jpg" alt="K&I Kitchens showroom interior with warm materials on display" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- ═══ CLOSING CTA ════════════════════════════════════════════ -->
-  <section id="cta" class="cta-section">
-    <div class="container">
-      <div class="cta-inner">
-        <span class="eyebrow reveal">Get In Touch</span>
-        <h2 class="reveal reveal-delay-1">
-          Ready to design the kitchen<br>
-          <em>you have always wanted?</em>
-        </h2>
-        <p class="cta-lead reveal reveal-delay-2">
-          There's no obligation when you get in touch. Let's talk about your space,
-          your style, and what's possible. We'd love to visit you and see your kitchen for ourselves.
-        </p>
-        <div class="button-row button-row--center reveal reveal-delay-3">
-          <a class="btn" href="tel:02072840046">Call 020 7284 0046</a>
-          <a class="btn-ghost" href="index.html">Back to Home</a>
-        </div>
-      </div>
+  <!-- ═══ CLOSING CTA ═══════════════════════════════════════════ -->
+  <section class="closing" id="s-contact">
+    <div class="container closing-inner reveal-item">
+      <span class="eyebrow">Start Your Project</span>
+      <h2 class="closing-title">Ready to design the kitchen<br>you have always wanted?</h2>
+      <p class="closing-lead">
+        There is no obligation when you get in touch. Let&rsquo;s talk about your
+        space, your style, and what is possible.
+      </p>
+      <a href="tel:02072840046" class="btn btn-accent">Book a Consultation</a>
+      <span class="closing-phone">Or call 020 7284 0046</span>
     </div>
   </section>
 
 </main>
 
+<!-- ═══ FOOTER ══════════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-row">
-      <span class="footer-brand">K&amp;I Kitchens</span>
-      <span class="footer-phone"><a href="tel:02072840046">020 7284 0046</a></span>
-      <span class="footer-location">London</span>
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <span class="footer-brand"><span class="footer-brand-mark">K&amp;I</span> <span class="footer-brand-name">KITCHENS</span></span>
+        <p class="footer-tagline">Beautifully crafted bespoke kitchens for London homes.</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-heading">Explore</span>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#s-services">Kitchens</a></li>
+          <li><a href="index.html#s-process">Process</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="#s-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-heading">Get In Touch</span>
+        <ul class="footer-links">
+          <li><a href="tel:02072840046" class="footer-phone">020 7284 0046</a></li>
+          <li><a href="mailto:hello@kandikitchens.co.uk">hello@kandikitchens.co.uk</a></li>
+          <li class="footer-muted">London showroom available</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="footer-heading">As Featured In</span>
+        <p class="footer-credential">25 Beautiful Homes</p>
+      </div>
     </div>
     <div class="footer-base">
-      <p class="intelisite-credit">A showcase concept by <a href="../../index.html">InteliSite</a> &mdash; intelisite.space</p>
+      <p class="footer-copy">&copy; 2024 K&amp;I Kitchens. All rights reserved.</p>
+      <p class="footer-by">A showcase concept by <a href="../../index.html">InteliSite</a> &mdash; intelisite.space</p>
     </div>
   </div>
 </footer>
 
-<!-- Responsive mobile overrides for portfolio layout -->
-<style>
-@media (max-width: 768px) {
-  .portfolio-entry {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    direction: ltr;
-  }
-  .portfolio-entry--reverse {
-    direction: ltr;
-  }
-  section.section > .container > div[style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Nav scroll state
-    var header = document.querySelector('.site-header');
-    if (header) {
-      window.addEventListener('scroll', function() {
-        header.classList.toggle('is-scrolled', window.scrollY > 60);
-      }, { passive: true });
-    }
-
-    // Mobile hamburger menu
-    var toggle = document.querySelector('.nav-toggle');
-    var navLinks = document.querySelector('.nav-links');
-    if (toggle && navLinks) {
-      toggle.addEventListener('click', function() {
-        var open = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!open));
-        toggle.classList.toggle('is-open', !open);
-        navLinks.classList.toggle('is-open', !open);
-      });
-      navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.classList.remove('is-open');
-          navLinks.classList.remove('is-open');
-        });
-      });
-    }
-
-    // Activate reveal animations
-    document.documentElement.classList.add('js-ready');
-
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(function(el) {
-      obs.observe(el);
-    });
-  });
-</script>
-
+<script src="assets/script.js"></script>
 </body>
 </html>
