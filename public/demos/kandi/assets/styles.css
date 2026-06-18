@@ -1,6 +1,6 @@
 /* ================================================================
    K&I Kitchens — styles.css
-   Light/cream palette. Zero dark backgrounds.
+   Pure CSS + vanilla JS. No Three.js. No GSAP.
    ================================================================ */
 
 /* ─── RESET & BASE ────────────────────────────────────────────── */
@@ -26,7 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, video, canvas { display: block; max-width: 100%; }
+img, video { display: block; max-width: 100%; }
 
 a { color: inherit; text-decoration: none; }
 a:focus-visible {
@@ -46,25 +46,24 @@ ul { list-style: none; }
 
 /* ─── TOKENS ──────────────────────────────────────────────────── */
 :root {
-  --bg:           #fafaf8;
-  --bg-cream:     #f0ede6;
-  --bg-card:      #f5f2eb;
-  --text:         #1a1a1a;
-  --body:         #4a4a4a;
-  --muted:        #7a7a7a;
-  --accent:       #8b3a3a;
-  --accent-hover: #6e2e2e;
-  --wood:         #a87a52;
-  --wood-dark:    #7a5830;
-  --brass:        #c8a840;
-  --line:         rgba(26,26,26,0.08);
-  --line-warm:    rgba(139,58,58,0.15);
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --section-gap:  clamp(5rem, 8vw, 9rem);
-  --container:    1160px;
+  --bg:            #fafaf8;
+  --bg-cream:      #f0ede6;
+  --bg-dark:       #1a1a1a;
+  --text:          #1a1a1a;
+  --body:          #4a4a4a;
+  --muted:         #7a7a7a;
+  --accent:        #8b3a3a;
+  --accent-hover:  #6e2e2e;
+  --wood:          #a87a52;
+  --brass:         #c8a840;
+  --line:          rgba(26,26,26,0.08);
+  --line-warm:     rgba(139,58,58,0.15);
+  --font-display:  Georgia, 'Times New Roman', serif;
+  --font-body:     -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --section-gap:   clamp(5rem, 8vw, 9rem);
+  --container:     1160px;
   --container-pad: clamp(1.25rem, 4vw, 2.5rem);
-  --ease:         cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease:          cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* ─── TYPOGRAPHY ──────────────────────────────────────────────── */
@@ -77,8 +76,7 @@ h1, h2, h3, h4 {
 
 h1 { font-size: clamp(3rem, 6vw, 5.5rem); }
 h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); }
-h3 { font-size: clamp(1.5rem, 2.5vw, 2.1rem); }
-h4 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+h3 { font-size: clamp(1.1rem, 1.8vw, 1.35rem); }
 
 h1 em, h2 em, h3 em { font-style: italic; }
 
@@ -103,15 +101,13 @@ p {
 }
 
 .section-heading {
-  margin-bottom: clamp(3rem, 5vw, 5rem);
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
-.section-heading h2 {
-  margin-top: 0.75rem;
-}
+.section-heading h2 { margin-top: 0.75rem; }
 
 .section-cta {
-  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
   text-align: center;
 }
 
@@ -132,7 +128,6 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   padding: 0.85rem 2rem;
   background: var(--accent);
   color: #fafaf8;
@@ -143,11 +138,11 @@ p {
   text-transform: uppercase;
   border-radius: 2px;
   border: 2px solid var(--accent);
-  transition: background 280ms var(--ease), border-color 280ms var(--ease), transform 180ms var(--ease);
-  cursor: pointer;
+  transition: background 280ms var(--ease), border-color 280ms var(--ease);
   text-decoration: none;
   white-space: nowrap;
   min-height: 48px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -159,34 +154,6 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 2rem;
-  background: transparent;
-  color: var(--accent);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  border: 2px solid var(--accent);
-  transition: background 280ms var(--ease), color 280ms var(--ease), transform 180ms var(--ease);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  min-height: 48px;
-}
-
-.btn-ghost:hover {
-  background: var(--accent);
-  color: #fafaf8;
-}
-
-.btn-tel {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
   padding: 0.85rem 2rem;
   background: transparent;
   color: var(--accent);
@@ -198,13 +165,13 @@ p {
   border-radius: 2px;
   border: 2px solid var(--accent);
   transition: background 280ms var(--ease), color 280ms var(--ease);
-  cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
   min-height: 48px;
+  cursor: pointer;
 }
 
-.btn-tel:hover {
+.btn-ghost:hover {
   background: var(--accent);
   color: #fafaf8;
 }
@@ -233,14 +200,11 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
-.button-row--center {
-  justify-content: center;
-}
+.button-row--center { justify-content: center; }
 
-/* ─── FIXED HEADER ────────────────────────────────────────────── */
+/* ─── HEADER ──────────────────────────────────────────────────── */
 .site-header {
   position: fixed;
   top: 0;
@@ -248,14 +212,15 @@ p {
   right: 0;
   z-index: 100;
   background: transparent;
-  transition: background 350ms var(--ease), box-shadow 350ms var(--ease), backdrop-filter 350ms;
+  transition: background 350ms var(--ease), border-bottom 350ms var(--ease), backdrop-filter 350ms;
 }
 
 .site-header.is-scrolled {
-  background: rgba(250, 250, 248, 0.96);
+  background: rgba(250, 250, 248, 0.97);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 var(--line), 0 4px 24px rgba(26,26,26,0.05);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 4px 24px rgba(26,26,26,0.05);
 }
 
 .nav-shell {
@@ -266,13 +231,13 @@ p {
   gap: 2rem;
 }
 
-/* Brand */
 .brand {
   display: flex;
   align-items: baseline;
   gap: 0.45rem;
   text-decoration: none;
   color: var(--text);
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -291,7 +256,6 @@ p {
   letter-spacing: 0.06em;
 }
 
-/* Nav links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -336,7 +300,6 @@ p {
 
 .nav-cta::after { display: none !important; }
 
-/* Hamburger toggle */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -360,935 +323,533 @@ p {
   transform-origin: center;
 }
 
-.nav-toggle.is-open span:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
-}
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-.nav-toggle.is-open span:nth-child(2) {
+/* ─── SCROLL REVEAL SYSTEM ────────────────────────────────────── */
+.reveal-item {
   opacity: 0;
-  transform: scaleX(0);
+  transform: translateY(24px);
+  transition: opacity 650ms var(--ease), transform 650ms var(--ease);
 }
 
-.nav-toggle.is-open span:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ─── SINGLE THREE.JS CANVAS — fixed overlay ─────────────────── */
-#three-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
-  display: none; /* JS enables on desktop only */
+/* nth-child stagger within any parent grid/flex */
+.reveal-item:nth-child(2) { transition-delay: 90ms; }
+.reveal-item:nth-child(3) { transition-delay: 180ms; }
+.reveal-item:nth-child(4) { transition-delay: 270ms; }
+
+/* ─── HERO SECTION ────────────────────────────────────────────── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── INTRO OVERLAY ───────────────────────────────────────────── */
-#s1-intro {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
+.hero-section {
+  min-height: 100vh;
+  padding-top: 72px;
   background: var(--bg);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  min-height: calc(100vh - 72px);
+}
+
+/* Left column — text */
+.hero-left {
   display: flex;
   align-items: center;
-  justify-content: center;
-  pointer-events: none;
+  padding: clamp(3rem, 7vh, 6rem) clamp(2rem, 4vw, 4rem) clamp(3rem, 7vh, 6rem) var(--container-pad);
+  /* Align left edge with container */
+  padding-left: max(var(--container-pad), calc((100vw - var(--container)) / 2 + var(--container-pad)));
 }
 
-#s1-intro.is-exiting {
-  opacity: 0;
-  transition: opacity 600ms ease;
+.hero-copy { max-width: 560px; }
+
+.hero-eyebrow {
+  animation: heroFadeUp 700ms var(--ease) 80ms both;
 }
 
-.intro-line {
-  position: absolute;
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  font-style: italic;
-  color: var(--text);
-  text-align: center;
-  opacity: 0;
-  transition: opacity 700ms ease;
-  padding: 0 2rem;
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
-.intro-line.is-visible { opacity: 1; }
-
-/* ─── PINNED SCENE SECTIONS ───────────────────────────────────── */
-.scene-section {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background: var(--bg);
-}
-
-.scene-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+.hero-line {
   display: block;
 }
 
-.scene-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.scene-overlay a, .scene-overlay button { pointer-events: auto; }
-
-/* Hero copy */
-.hero-copy {
-  max-width: 580px;
-}
+.hero-line-1 { animation: heroFadeUp 800ms var(--ease) 220ms both; }
+.hero-line-2 { animation: heroFadeUp 800ms var(--ease) 380ms both; }
+.hero-line-3 { animation: heroFadeUp 800ms var(--ease) 520ms both; margin-top: 0.08em; }
 
 .hero-lead {
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: var(--body);
-  line-height: 1.7;
-  margin-top: 1.25rem;
-  max-width: 52ch;
+  margin-top: 1.5rem;
+  max-width: 48ch;
+  animation: heroFadeUp 800ms var(--ease) 660ms both;
 }
 
-/* Mobile fallback art */
-.hero-fallback-art {
-  display: none;
-  width: 100%;
-  height: 300px;
-  border-radius: 4px;
-  background-image: url('images/kandi-kitchen-muswell-hill.jpg');
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  animation: heroFadeUp 800ms var(--ease) 800ms both;
+}
+
+/* Right column — photo */
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/kandi-kitchen-traditional.jpg');
   background-size: cover;
-  background-position: center 30%;
-  margin-bottom: 2rem;
+  background-position: center 25%;
+  will-change: transform;
+  transform: scale(1.08) translateY(0px);
 }
 
-/* ─── DOOR SECTION ────────────────────────────────────────────── */
-.door-section {
-  position: relative;
-  height: 100vh;
-  background: var(--bg-cream);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+/* ─── CRAFTSMANSHIP SECTION ───────────────────────────────────── */
+.craft-section { background: var(--bg); }
 
-.door-stage-wrap {
-  perspective: 1400px;
-  perspective-origin: center center;
-}
-
-.door-stage {
-  position: relative;
-  width: min(380px, 80vw);
-  height: min(520px, 70vh);
-}
-
-.door-interior {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, #fff8f0 0%, #f5e8d0 50%, #ede0c8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  border: 1px solid rgba(168,120,80,0.2);
-}
-
-.door-interior-light {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 60%;
-  background: radial-gradient(ellipse at 50% 30%, rgba(255,240,200,0.6) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.door-reveal-text {
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-style: italic;
-  color: var(--text);
+.craft-header {
   text-align: center;
-  opacity: 0;
-  transition: none;
-  line-height: 1.5;
-}
-
-.door-panel {
-  position: absolute;
-  inset: 0;
-  transform-origin: left center;
-  transform-style: preserve-3d;
-  cursor: default;
-}
-
-.door-panel-front, .door-panel-back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-}
-
-.door-panel-front {
-  background:
-    repeating-linear-gradient(3deg, transparent 0, transparent 22px, rgba(255,240,200,0.04) 22px, rgba(255,240,200,0.04) 23px),
-    repeating-linear-gradient(-2deg, transparent 0, transparent 45px, rgba(140,100,50,0.05) 45px, rgba(140,100,50,0.05) 46px),
-    linear-gradient(160deg, #c8915a 0%, #a87040 20%, #d4a870 40%, #b07840 60%, #c89060 80%, #a87040 100%);
-  box-shadow: inset 0 0 0 12px rgba(140,90,40,0.25), inset 0 0 0 14px rgba(200,150,80,0.1);
-}
-
-.door-panel-back {
-  background: linear-gradient(180deg, #c08050 0%, #a06830 100%);
-  transform: rotateY(180deg);
-}
-
-.door-handle {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 80px;
-  background: linear-gradient(90deg, #b89030, #dcc050, #b89030);
-  border-radius: 3px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-}
-
-.door-mobile-fallback {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-/* ─── DRAWER COPY ─────────────────────────────────────────────── */
-.drawer-copy {
-  max-width: 500px;
-}
-
-/* ─── CRAFT SECTION ───────────────────────────────────────────── */
-.craft-section {
-  position: relative;
-  height: 100vh;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.craft-inner {
-  width: 100%;
-  max-width: var(--container);
-  padding: 0 var(--container-pad);
-  text-align: center;
-}
-
-.craft-headline {
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  margin-bottom: 3rem;
-  opacity: 0;
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
 .craft-panels {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: 1.25rem;
 }
 
 .craft-panel {
-  opacity: 0;
-  transform: translateY(30px) scale(0.9);
-  transform-origin: center bottom;
+  overflow: hidden;
+  border-radius: 2px;
 }
 
-.craft-art {
-  height: clamp(200px, 25vh, 280px);
-  border-radius: 4px;
-  margin-bottom: 1rem;
+.craft-panel-image {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 500ms var(--ease);
 }
 
-.craft-art--oak {
-  background:
-    repeating-linear-gradient(
-      11deg,
-      transparent 0, transparent 7px,
-      rgba(70, 35, 8, 0.18) 7px, rgba(70, 35, 8, 0.18) 8px
-    ),
-    repeating-linear-gradient(
-      89deg,
-      transparent 0, transparent 22px,
-      rgba(90, 50, 12, 0.10) 22px, rgba(90, 50, 12, 0.10) 23px
-    ),
-    linear-gradient(165deg, #c8883c 0%, #a06020 30%, #d8a060 55%, #b07030 80%, #c8883c 100%);
+.craft-panel:hover .craft-panel-image {
+  transform: scale(1.04);
 }
 
-.craft-art--brass {
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0, transparent 2px,
-      rgba(140, 95, 5, 0.18) 2px, rgba(140, 95, 5, 0.18) 3px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0, transparent 1px,
-      rgba(210, 160, 20, 0.12) 1px, rgba(210, 160, 20, 0.12) 2px
-    ),
-    linear-gradient(82deg, #b89020 0%, #d8b030 22%, #f0d050 48%, #c8a028 72%, #b89020 100%);
+.craft-panel--grain {
+  background-image: url('images/kandi-kitchen-muswell-hill.jpg');
+  background-position: center 35%;
 }
 
-.craft-art--stone {
-  background:
-    repeating-linear-gradient(
-      118deg,
-      transparent 0, transparent 16px,
-      rgba(120, 110, 100, 0.22) 16px, rgba(120, 110, 100, 0.22) 17px
-    ),
-    repeating-linear-gradient(
-      134deg,
-      transparent 0, transparent 28px,
-      rgba(140, 130, 118, 0.14) 28px, rgba(140, 130, 118, 0.14) 29px
-    ),
-    linear-gradient(148deg, #ece8e3 0%, #e2ddd7 28%, #e8e4df 54%, #d8d3cd 80%, #e6e1dc 100%);
+.craft-panel--hardware {
+  background-image: url('images/kandi-kitchen-dark-detail.jpg');
+  background-position: center center;
+}
+
+.craft-panel--surface {
+  background-image: url('images/kandi-kitchen-handleless.jpg');
+  background-position: center 20%;
 }
 
 .craft-label {
   font-family: var(--font-body);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-}
-
-.craft-finale {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-style: italic;
-  color: var(--text);
-  opacity: 0;
-  transform: translateY(20px);
-  line-height: 1.3;
+  margin-top: 0.9rem;
+  max-width: none;
 }
 
 /* ─── PROCESS SECTION ─────────────────────────────────────────── */
+.process-section { background: var(--bg-cream); }
+
 .process-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.process-step {
-  position: relative;
-  padding-top: 2rem;
-  border-top: 2px solid var(--line);
-}
-
-.process-step:hover {
-  border-top-color: var(--accent);
+  gap: 3rem 2rem;
 }
 
 .step-num {
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
   color: var(--accent);
-  margin-bottom: 0.85rem;
+  margin-bottom: 1rem;
 }
 
 .process-step h3 {
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
   margin-bottom: 0.75rem;
-  color: var(--text);
 }
 
 .process-step p {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--body);
-  line-height: 1.7;
   max-width: none;
 }
 
 /* ─── FEATURED IN ─────────────────────────────────────────────── */
-.featured-strip {
+.featured-section {
   background: var(--bg-cream);
-  padding: var(--section-gap) 0;
+  padding: clamp(4rem, 7vw, 8rem) 0;
   text-align: center;
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.featured-label {
-  display: block;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
 .featured-name {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-style: italic;
-  color: var(--text);
-  line-height: 1.05;
-  margin: 0 auto 1rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 1rem;
   max-width: none;
 }
 
 .featured-sub {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--muted);
-  letter-spacing: 0.06em;
-  max-width: none;
+  max-width: 40ch;
   margin: 0 auto;
 }
 
-/* ─── PROJECT CARDS ───────────────────────────────────────────── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
+/* ─── PROJECTS — HORIZONTAL SCROLL SNAP ──────────────────────── */
+.projects-section { background: var(--bg); }
+
+.projects-scroll-wrap {
+  margin-top: 1rem;
+  overflow: hidden;
 }
+
+.projects-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--container-pad);
+  padding: 0.5rem var(--container-pad) 1.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Align left edge of first card with container */
+  padding-left: max(var(--container-pad), calc((100vw - var(--container)) / 2 + var(--container-pad)));
+}
+
+.projects-scroll::-webkit-scrollbar { display: none; }
 
 .project-card {
-  position: relative;
-  border-radius: 4px;
+  flex: 0 0 380px;
+  scroll-snap-align: start;
+  border-radius: 2px;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 400ms var(--ease), box-shadow 400ms;
-}
-
-.project-card:hover {
-  transform: scale(1.015);
-  box-shadow: 0 16px 48px rgba(26,26,26,0.12);
 }
 
 .project-card-link {
   display: block;
   position: relative;
+  height: 480px;
+  overflow: hidden;
   text-decoration: none;
 }
 
-.project-art {
-  height: clamp(280px, 40vw, 480px);
-  position: relative;
-}
-
-.project-art--muswell {
-  background-image: url('images/kandi-kitchen-muswell-hill.jpg');
-  background-size: cover;
-  background-position: center 20%;
-}
-
-.project-art--muswell::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 40%;
-  background: linear-gradient(0deg, rgba(26,26,26,0.5) 0%, transparent 100%);
-}
-
-.project-art--bermondsey {
-  background-image: url('images/kandi-kitchen-bermondsey.jpg');
-  background-size: cover;
-  background-position: center 25%;
-}
-
-.project-art--bermondsey::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 35%;
-  background: linear-gradient(0deg, rgba(26,26,26,0.5) 0%, transparent 100%);
-}
-
-.project-overlay {
+.project-card-image {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(26,26,26,0.6) 100%);
-  opacity: 0;
-  transition: opacity 300ms;
+  background-size: cover;
+  background-position: center;
+  transition: transform 500ms var(--ease);
+}
+
+.project-card-link:hover .project-card-image {
+  transform: scale(1.04);
+}
+
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20,15,10,0.88) 0%, rgba(20,15,10,0.3) 45%, transparent 100%);
   display: flex;
   align-items: flex-end;
   padding: 2rem;
+  opacity: 0;
+  transition: opacity 350ms var(--ease);
 }
 
-.project-card:hover .project-overlay { opacity: 1; }
-
-.project-view-label {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #ffffff;
+.project-card-link:hover .project-card-overlay {
+  opacity: 1;
 }
 
-.project-meta {
-  padding: 1.5rem 0;
-}
-
-.project-name {
+.project-card-name {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--text);
-  margin-bottom: 0.4rem;
-  line-height: 1.1;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
-.project-desc {
-  font-size: 0.9rem;
-  color: var(--body);
-  line-height: 1.6;
-  max-width: none;
+.project-card-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+  max-width: 28ch;
+  margin-bottom: 1rem;
 }
 
-/* ─── CLOSING CTA ─────────────────────────────────────────────── */
+.project-card-cta {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.45);
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+/* ─── CTA SECTION ─────────────────────────────────────────────── */
 .cta-section {
   background: var(--bg-cream);
-  padding: var(--section-gap) 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid var(--line);
+  padding: clamp(5rem, 9vw, 10rem) 0;
+  text-align: center;
 }
 
 .cta-inner {
-  text-align: center;
   max-width: 700px;
   margin: 0 auto;
 }
 
-.cta-inner h2 {
-  margin-top: 0.75rem;
-  margin-bottom: 0;
+.cta-lead {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--body);
+  margin-top: 1.5rem;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.cta-lead {
-  font-size: 1rem;
-  color: var(--body);
-  line-height: 1.75;
-  margin: 1.5rem auto 0;
-  max-width: 54ch;
+.cta-section .button-row {
+  margin-top: 2.5rem;
 }
 
 /* ─── FOOTER ──────────────────────────────────────────────────── */
 .footer {
-  background: var(--bg-cream);
-  border-top: 1px solid var(--line);
-  padding: 3rem 0 2rem;
+  background: #1a1a1a;
+  color: rgba(255,255,255,0.65);
+  padding: clamp(4rem, 7vw, 6rem) 0 0;
 }
 
-.footer-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.footer-brand {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.02em;
-}
-
-.footer-phone {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--body);
-  letter-spacing: 0.05em;
-}
-
-.footer-phone a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 200ms;
-}
-
-.footer-phone a:hover { color: var(--accent); }
-
-.footer-location {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.footer-base {
-  text-align: center;
-}
-
-.intelisite-credit {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.intelisite-credit a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 200ms;
-}
-
-.intelisite-credit a:hover { color: var(--accent-hover); }
-
-/* ─── SCROLL REVEALS ──────────────────────────────────────────── */
-.reveal {
-  opacity: 1;
-  transform: none;
-}
-
-.js-ready .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.js-ready .reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-.reveal-delay-1 { transition-delay: 100ms; }
-.reveal-delay-2 { transition-delay: 200ms; }
-.reveal-delay-3 { transition-delay: 300ms; }
-
-/* ─── PORTFOLIO PAGE ──────────────────────────────────────────── */
-.portfolio-hero {
-  padding-top: calc(72px + var(--section-gap));
-  padding-bottom: var(--section-gap);
-  background: var(--bg);
-}
-
-.portfolio-hero h1 {
-  margin-top: 0.75rem;
-  max-width: 18ch;
-}
-
-.portfolio-projects {
-  padding: var(--section-gap) 0;
-  background: var(--bg);
-}
-
-.portfolio-entry {
+.footer-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  padding: clamp(3rem, 5vw, 5rem) 0;
-  border-top: 1px solid var(--line);
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: clamp(3rem, 5vw, 4rem);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.portfolio-entry:first-child { border-top: none; }
-
-.portfolio-entry--reverse {
-  direction: rtl;
-}
-
-.portfolio-entry--reverse > * {
-  direction: ltr;
-}
-
-.portfolio-art-wrap {
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.portfolio-art {
-  width: 100%;
-  height: clamp(320px, 45vw, 560px);
-}
-
-.portfolio-detail h2 {
-  margin-bottom: 0.85rem;
-}
-
-.portfolio-detail p {
-  font-size: 0.97rem;
+.footer-wordmark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 0.04em;
   margin-bottom: 1.25rem;
-  max-width: 48ch;
 }
 
-.portfolio-tag {
-  display: inline-block;
+.footer-tagline {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.65;
+  max-width: 28ch;
+}
+
+.footer-col-heading {
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: var(--bg-cream);
-  border: 1px solid var(--line-warm);
-  border-radius: 2px;
-  padding: 0.3rem 0.7rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* ─── STYLE CARDS (PORTFOLIO) ─────────────────────────────────── */
-.styles-section {
-  background: var(--bg-cream);
-  padding: var(--section-gap) 0;
-}
-
-.styles-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: clamp(2rem, 4vw, 3.5rem);
-}
-
-.style-card {
-  padding: 2.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--line);
-  background: var(--bg);
-  transition: border-color 300ms, box-shadow 300ms;
-}
-
-.style-card:hover {
-  border-color: rgba(139,58,58,0.25);
-  box-shadow: 0 8px 32px rgba(26,26,26,0.08);
-}
-
-.style-art {
-  height: 180px;
-  border-radius: 3px;
-  margin-bottom: 1.5rem;
-}
-
-.style-art--traditional {
-  background-image: url('images/kandi-kitchen-traditional.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.style-art--designer {
-  background-image: url('images/kandi-kitchen-dark-detail.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.style-art--contemporary {
-  background-image: url('images/kandi-kitchen-handleless.jpg');
-  background-size: cover;
-  background-position: center 30%;
-}
-
-.style-art--handleless {
-  background-image: url('images/kandi-kitchen-handleless.jpg');
-  background-size: cover;
-  background-position: center 60%;
-}
-
-.style-card h3 {
-  font-size: 1.35rem;
-  margin-bottom: 0.6rem;
-  color: var(--text);
-}
-
-.style-card p {
-  font-size: 0.9rem;
-  color: var(--body);
-  line-height: 1.65;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 1.25rem;
   max-width: none;
 }
 
-/* ─── PORTFOLIO HERO LARGE ART ────────────────────────────────── */
-.portfolio-hero-art {
-  width: 100%;
-  height: clamp(280px, 45vw, 500px);
-  border-radius: 4px;
-  margin-top: 3rem;
-  background-image: url('images/kandi-kitchen-muswell-hill.jpg');
-  background-size: cover;
-  background-position: center 30%;
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
-/* ─── REDUCED MOTION ──────────────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+.footer-col ul li,
+.footer-col ul a {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 200ms;
 }
 
-/* ─── RESPONSIVE: TABLET ──────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .process-strip {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-  }
+.footer-col ul a:hover { color: #fff; }
 
-  .portfolio-entry {
-    gap: 2.5rem;
-  }
+.footer-featured {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1.3;
+  max-width: none;
 }
 
-/* ─── RESPONSIVE: MOBILE (640px) ─────────────────────────────── */
-@media (max-width: 640px) {
+.footer-base {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+}
 
-  /* Nav becomes hamburger */
-  .nav-toggle {
-    display: flex;
-    z-index: 200;
-    position: relative;
-  }
+.footer-credit,
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.28);
+  max-width: none;
+}
+
+.footer-credit a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─── MOBILE — NAV ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
 
   .nav-links {
-    display: none;
     position: fixed;
     inset: 0;
-    background: rgba(250,250,248,0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    top: 72px;
+    background: var(--bg);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2.5rem;
-    z-index: 150;
-    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 300ms var(--ease), transform 300ms var(--ease);
+    z-index: 99;
   }
 
   .nav-links.is-open {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
-  .nav-links a {
-    font-size: 1.3rem;
-    font-family: var(--font-display);
-    font-style: italic;
-    color: var(--text);
-    letter-spacing: 0.03em;
+  .nav-links a { font-size: 1.1rem; }
+  .nav-cta { padding: 0.75rem 2rem !important; font-size: 0.9rem !important; }
+}
+
+/* ─── MOBILE — HERO ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: unset;
   }
 
-  .nav-links a::after { display: none; }
-
-  .nav-cta {
-    font-size: 0.9rem !important;
-    padding: 0.85rem 2rem !important;
-    min-height: 48px !important;
+  .hero-left {
+    padding: 2.5rem var(--container-pad) 2.5rem;
+    padding-left: var(--container-pad);
+    order: 2;
   }
 
-  /* Hero: hide canvas, show fallback */
-  .scene-canvas.desktop-only { display: none; }
-  .hero-fallback-art.mobile-fallback { display: block; }
-
-  .scene-section {
-    height: auto;
-    min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 3rem;
-  }
-
-  .scene-overlay {
+  .hero-right {
+    order: 1;
+    height: 56vw;
+    min-height: 280px;
     position: relative;
-    inset: auto;
   }
 
-  /* Door section mobile */
-  .door-section {
-    height: auto;
-    min-height: auto;
-    padding: 4rem 1.5rem;
-    flex-direction: column;
-    gap: 2rem;
+  .hero-photo {
+    position: absolute;
+    inset: 0;
   }
+}
 
-  .door-stage {
-    width: min(300px, 85vw);
-    height: min(400px, 60vw);
-  }
-
-  .door-mobile-fallback { display: block; }
-
-  .door-section .door-stage-wrap { display: none; }
-
-  /* Craft section mobile */
-  .craft-section {
-    height: auto;
-    min-height: auto;
-    padding: 4rem 0;
-  }
-
+/* ─── MOBILE — CRAFT ──────────────────────────────────────────── */
+@media (max-width: 640px) {
   .craft-panels {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 0.85rem;
   }
 
-  /* Process mobile */
-  .process-strip {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+  .craft-panel-image { height: 220px; }
+}
 
-  /* Projects grid mobile */
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+/* ─── MOBILE — PROCESS ────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .process-strip { grid-template-columns: repeat(2, 1fr); }
+}
 
-  /* Portfolio */
-  .portfolio-entry {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    direction: ltr;
-  }
+@media (max-width: 560px) {
+  .process-strip { grid-template-columns: 1fr; }
+}
 
-  .portfolio-entry--reverse {
-    direction: ltr;
-  }
-
-  .styles-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Footer */
-  .footer-row {
+/* ─── MOBILE — PROJECTS ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .projects-scroll {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    overflow-x: visible;
+    padding-left: var(--container-pad);
+    scroll-snap-type: none;
   }
 
-  /* Buttons */
-  .button-row {
-    flex-direction: column;
-    align-items: flex-start;
+  .project-card {
+    flex: none;
+    width: 100%;
+    scroll-snap-align: none;
   }
 
-  .button-row--center {
-    align-items: center;
+  .project-card-link { height: 340px; }
+
+  .project-card-overlay { opacity: 1; }
+}
+
+/* ─── MOBILE — FOOTER ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
   }
 
-  h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
-  h2 { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .footer-col--brand { grid-column: 1 / -1; }
+}
 
-  .portfolio-art {
-    height: clamp(260px, 60vw, 400px);
-  }
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
 }

@@ -93,16 +93,6 @@ const EXTRAS = [
     price: "£300/month",
     desc: "One optimised blog post per month to build your search rankings.",
   },
-  {
-    title: "Video Production",
-    price: "£1,199",
-    desc: "30 to 60 second cinematic brand video for your hero section.",
-  },
-  {
-    title: "Paid Advertising",
-    price: "£500/month + ad spend",
-    desc: "Managed Google or Meta campaigns driving leads to your new site.",
-  },
 ];
 
 /* ════════════════════════════════════════════════════
@@ -316,7 +306,112 @@ export default function Pricing() {
       </section>
 
       {/* ══════════════════════════════════════════
-          §3b ONGOING SUPPORT
+          §3b COMING SOON — Video Production
+          ══════════════════════════════════════════ */}
+      <section
+        className="relative w-full py-scene-y bg-navy overflow-hidden"
+        style={{ borderTop: "1px solid rgba(232,228,218,0.05)" }}
+      >
+        <div className="container-edge relative">
+          {/* Eyebrow */}
+          <FadeIn>
+            <div className="flex items-center mb-8">
+              <span className="hairline" />
+              <span className="eyebrow">Expanding Soon</span>
+            </div>
+          </FadeIn>
+
+          {/* Headline */}
+          <motion.h2
+            initial={{ opacity: 0, y: reduced ? 0 : 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewport}
+            transition={{ duration: duration.slow, ease: ease.silk, delay: 0.08 }}
+            className="font-display text-display-md text-bone mb-5"
+            style={{ lineHeight: 1.08 }}
+          >
+            Something cinematic is coming.
+          </motion.h2>
+
+          {/* Supporting line */}
+          <motion.p
+            initial={{ opacity: 0, y: reduced ? 0 : 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewport}
+            transition={{ duration: duration.slow, ease: ease.silk, delay: 0.14 }}
+            className="font-sans mb-14 md:mb-16 max-w-2xl"
+            style={{ fontSize: "0.95rem", lineHeight: 1.7, color: "rgba(232,228,218,0.6)" }}
+          >
+            We are building something we are genuinely proud of before we offer it. Our video
+            production service is in development and will be available to InteliSite clients
+            exclusively when ready.
+          </motion.p>
+
+          {/* Single centered card */}
+          <div className="flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: reduced ? 0 : 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ duration: duration.slow, ease: ease.silk, delay: 0.18 }}
+              style={{
+                background: "rgba(201,168,76,0.04)",
+                border: "1px dashed rgba(201,168,76,0.15)",
+                borderRadius: "2px",
+                padding: "2rem",
+                maxWidth: "500px",
+                width: "100%",
+              }}
+            >
+              {/* Coming Soon pill */}
+              <div className="mb-5">
+                <span
+                  className="font-sans text-xs uppercase tracking-widest"
+                  style={{
+                    display: "inline-block",
+                    background: "rgba(201,168,76,0.12)",
+                    color: "rgba(201,168,76,0.9)",
+                    padding: "0.25rem 0.75rem",
+                    borderRadius: "20px",
+                  }}
+                >
+                  Coming Soon
+                </span>
+              </div>
+
+              {/* Title */}
+              <p
+                className="font-display text-bone mb-4"
+                style={{ fontSize: "1.35rem", lineHeight: 1.15 }}
+              >
+                Brand Video Production
+              </p>
+
+              {/* Description */}
+              <p
+                className="font-sans text-sm mb-5"
+                style={{ lineHeight: 1.65, color: "rgba(232,228,218,0.5)" }}
+              >
+                30 to 60 second cinematic brand videos built specifically to convert. Crafted for
+                luxury home improvement businesses who want their work to move people, not just
+                impress them.
+              </p>
+
+              {/* Notify link */}
+              <a
+                href="/contact"
+                className="font-sans italic text-xs"
+                style={{ color: "rgba(232,228,218,0.3)", textDecoration: "none" }}
+              >
+                Notify me when available
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          §3c ONGOING SUPPORT
           ══════════════════════════════════════════ */}
       <section
         className="relative w-full py-scene-y bg-navy overflow-hidden"
