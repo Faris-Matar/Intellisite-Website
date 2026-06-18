@@ -287,9 +287,24 @@ p { max-width: 65ch; }
 .hero {
   min-height: 100vh;
   padding-top: 72px;
-  background: var(--bg);
+  position: relative;
+  background-color: var(--bg);
+  background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250,248,245,0.82);
+  z-index: 0;
+  pointer-events: none;
 }
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 58% 42%;
   min-height: calc(100vh - 72px);
